@@ -6408,6 +6408,8 @@ When printing to standard output, the supported subset of BBCode is converted to
 
 \ **Note:** On Windows, only Windows 10 and later correctly displays ANSI escape codes in standard output.
 
+\ **Note:** Output displayed in the editor supports clickable ``[url=address]text[/url]`` tags. The ``[url]`` tag's ``address`` value is handled by :ref:`OS.shell_open<class_OS_method_shell_open>` when clicked.
+
 .. rst-class:: classref-item-separator
 
 ----
@@ -7283,6 +7285,8 @@ Encodes a :ref:`Variant<class_Variant>` value to a byte array, without encoding 
 
 \ **Note:** If you need object serialization, see :ref:`var_to_bytes_with_objects<class_@GlobalScope_method_var_to_bytes_with_objects>`.
 
+\ **Note:** Encoding :ref:`Callable<class_Callable>` is not supported and will result in an empty value, regardless of the data.
+
 .. rst-class:: classref-item-separator
 
 ----
@@ -7294,6 +7298,8 @@ Encodes a :ref:`Variant<class_Variant>` value to a byte array, without encoding 
 :ref:`PackedByteArray<class_PackedByteArray>` **var_to_bytes_with_objects** **(** :ref:`Variant<class_Variant>` variable **)**
 
 Encodes a :ref:`Variant<class_Variant>` value to a byte array. Encoding objects is allowed (and can potentially include executable code). Deserialization can be done with :ref:`bytes_to_var_with_objects<class_@GlobalScope_method_bytes_to_var_with_objects>`.
+
+\ **Note:** Encoding :ref:`Callable<class_Callable>` is not supported and will result in an empty value, regardless of the data.
 
 .. rst-class:: classref-item-separator
 
