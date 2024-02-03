@@ -167,7 +167,7 @@ Controls the maximum number of physics steps that can be simulated each rendered
 - void **set_physics_jitter_fix** **(** :ref:`float<class_float>` value **)**
 - :ref:`float<class_float>` **get_physics_jitter_fix** **(** **)**
 
-Controls how much physics ticks are synchronized with real time. For 0 or less, the ticks are synchronized. Such values are recommended for network games, where clock synchronization matters. Higher values cause higher deviation of the in-game clock and real clock but smooth out framerate jitters. The default value of 0.5 should be fine for most; values above 2 could cause the game to react to dropped frames with a noticeable delay and are not recommended.
+Controls how much physics ticks are synchronized with real time. For 0 or less, the ticks are synchronized. Such values are recommended for network games, where clock synchronization matters. Higher values cause higher deviation of the in-game clock and real clock but smooth out framerate jitters. The default value of 0.5 should be good enough for most; values above 2 could cause the game to react to dropped frames with a noticeable delay and are not recommended.
 
 \ **Note:** For best results, when using a custom physics interpolation solution, the physics jitter fix should be disabled by setting :ref:`physics_jitter_fix<class_Engine_property_physics_jitter_fix>` to ``0``.
 
@@ -541,8 +541,6 @@ Returns the current engine version information in a Dictionary.
 \ ``build``    - Holds the build name (e.g. "custom_build") as a String
 
 \ ``hash``     - Holds the full Git commit hash as a String
-
-\ ``year``     - Holds the year the version was released in as an int
 
 \ ``string``   - ``major`` + ``minor`` + ``patch`` + ``status`` + ``build`` in a single String
 

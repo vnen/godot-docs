@@ -290,7 +290,7 @@ Player is free to move around, full positional tracking.
 
 :ref:`PlayAreaMode<enum_XRInterface_PlayAreaMode>` **XR_PLAY_AREA_STAGE** = ``4``
 
-Same as :ref:`XR_PLAY_AREA_ROOMSCALE<class_XRInterface_constant_XR_PLAY_AREA_ROOMSCALE>` but origin point is fixed to the center of the physical space, :ref:`XRServer.center_on_hmd<class_XRServer_method_center_on_hmd>` disabled.
+Same as :ref:`XR_PLAY_AREA_ROOMSCALE<class_XRInterface_constant_XR_PLAY_AREA_ROOMSCALE>` but origin point is fixed to the center of the physical space. In this mode, system-level recentering may be disabled, requiring the use of :ref:`XRServer.center_on_hmd<class_XRServer_method_center_on_hmd>`.
 
 .. rst-class:: classref-item-separator
 
@@ -639,6 +639,8 @@ Sets the active environment blend mode.
 :ref:`bool<class_bool>` **set_play_area_mode** **(** :ref:`PlayAreaMode<enum_XRInterface_PlayAreaMode>` mode **)**
 
 Sets the active play area mode, will return ``false`` if the mode can't be used with this interface.
+
+\ **Note:** Changing this after the interface has already been initialized can be jarring for the player, so it's recommended to recenter on the HMD with :ref:`XRServer.center_on_hmd<class_XRServer_method_center_on_hmd>` (if switching to :ref:`XR_PLAY_AREA_STAGE<class_XRInterface_constant_XR_PLAY_AREA_STAGE>`) or make the switch during a scene change.
 
 .. rst-class:: classref-item-separator
 
