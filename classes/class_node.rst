@@ -524,6 +524,10 @@ flags **ProcessThreadMessages**:
 
 :ref:`ProcessThreadMessages<enum_Node_ProcessThreadMessages>` **FLAG_PROCESS_THREAD_MESSAGES** = ``1``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_Node_constant_FLAG_PROCESS_THREAD_MESSAGES_PHYSICS:
@@ -532,6 +536,10 @@ flags **ProcessThreadMessages**:
 
 :ref:`ProcessThreadMessages<enum_Node_ProcessThreadMessages>` **FLAG_PROCESS_THREAD_MESSAGES_PHYSICS** = ``2``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_Node_constant_FLAG_PROCESS_THREAD_MESSAGES_ALL:
@@ -539,6 +547,10 @@ flags **ProcessThreadMessages**:
 .. rst-class:: classref-enumeration-constant
 
 :ref:`ProcessThreadMessages<enum_Node_ProcessThreadMessages>` **FLAG_PROCESS_THREAD_MESSAGES_ALL** = ``3``
+
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 
 
@@ -1100,7 +1112,7 @@ The owner of this node. The owner must be an ancestor of this node. When packing
 - void **set_process_mode** **(** :ref:`ProcessMode<enum_Node_ProcessMode>` value **)**
 - :ref:`ProcessMode<enum_Node_ProcessMode>` **get_process_mode** **(** **)**
 
-The node's processing behavior (see :ref:`ProcessMode<enum_Node_ProcessMode>`). To check if the node is able to process, with the current mode and :ref:`SceneTree.paused<class_SceneTree_property_paused>`, use :ref:`can_process<class_Node_method_can_process>`.
+The node's processing behavior (see :ref:`ProcessMode<enum_Node_ProcessMode>`). To check if the node can process in its current mode, use :ref:`can_process<class_Node_method_can_process>`.
 
 .. rst-class:: classref-item-separator
 
@@ -1540,7 +1552,19 @@ This function ensures that the calling of this function will succeed, no matter 
 
 :ref:`bool<class_bool>` **can_process** **(** **)** |const|
 
-Returns ``true`` if the node can receive processing notifications and input callbacks (:ref:`NOTIFICATION_PROCESS<class_Node_constant_NOTIFICATION_PROCESS>`, :ref:`_input<class_Node_private_method__input>`, etc) from the :ref:`SceneTree<class_SceneTree>` and :ref:`Viewport<class_Viewport>`. The value depends on both the current :ref:`process_mode<class_Node_property_process_mode>` and :ref:`SceneTree.paused<class_SceneTree_property_paused>`. Returns ``false`` if the node is not inside the tree.
+Returns ``true`` if the node can receive processing notifications and input callbacks (:ref:`NOTIFICATION_PROCESS<class_Node_constant_NOTIFICATION_PROCESS>`, :ref:`_input<class_Node_private_method__input>`, etc) from the :ref:`SceneTree<class_SceneTree>` and :ref:`Viewport<class_Viewport>`. The returned value depends on :ref:`process_mode<class_Node_property_process_mode>`:
+
+- If set to :ref:`PROCESS_MODE_PAUSABLE<class_Node_constant_PROCESS_MODE_PAUSABLE>`, returns ``true`` when the game is processing, i.e. :ref:`SceneTree.paused<class_SceneTree_property_paused>` is ``false``;
+
+- If set to :ref:`PROCESS_MODE_WHEN_PAUSED<class_Node_constant_PROCESS_MODE_WHEN_PAUSED>`, returns ``true`` when the game is paused, i.e. :ref:`SceneTree.paused<class_SceneTree_property_paused>` is ``true``;
+
+- If set to :ref:`PROCESS_MODE_ALWAYS<class_Node_constant_PROCESS_MODE_ALWAYS>`, always returns ``true``;
+
+- If set to :ref:`PROCESS_MODE_DISABLED<class_Node_constant_PROCESS_MODE_DISABLED>`, always returns ``false``;
+
+- If set to :ref:`PROCESS_MODE_INHERIT<class_Node_constant_PROCESS_MODE_INHERIT>`, use the parent node's :ref:`process_mode<class_Node_property_process_mode>` to determine the result.
+
+If the node is not inside the tree, returns ``false`` no matter the value of :ref:`process_mode<class_Node_property_process_mode>`.
 
 .. rst-class:: classref-item-separator
 
@@ -1552,7 +1576,7 @@ Returns ``true`` if the node can receive processing notifications and input call
 
 :ref:`Tween<class_Tween>` **create_tween** **(** **)**
 
-Creates a new :ref:`Tween<class_Tween>` and binds it to this node. Fails if the node is not inside the tree.
+Creates a new :ref:`Tween<class_Tween>` and binds it to this node.
 
 This is the equivalent of doing:
 
@@ -1569,7 +1593,9 @@ This is the equivalent of doing:
 
 
 
-The Tween will start automatically on the next process frame or physics frame (depending on :ref:`TweenProcessMode<enum_Tween_TweenProcessMode>`).
+The Tween will start automatically on the next process frame or physics frame (depending on :ref:`TweenProcessMode<enum_Tween_TweenProcessMode>`). See :ref:`Tween.bind_node<class_Tween_method_bind_node>` for more info on Tweens bound to nodes.
+
+\ **Note:** The method can still be used when the node is not inside :ref:`SceneTree<class_SceneTree>`. It can fail in an unlikely case of using a custom :ref:`MainLoop<class_MainLoop>`.
 
 .. rst-class:: classref-item-separator
 
@@ -1651,7 +1677,7 @@ Finds the first ancestor of this node whose :ref:`name<class_Node_property_name>
 
 :ref:`Node<class_Node>` **get_child** **(** :ref:`int<class_int>` idx, :ref:`bool<class_bool>` include_internal=false **)** |const|
 
-Fetches a child node by its index. Each child node has an index relative its siblings (see :ref:`get_index<class_Node_method_get_index>`). The first child is at index 0. Negative values can also be used to start from the end of the list. This method can be used in combination with :ref:`get_child_count<class_Node_method_get_child_count>` to iterate over this node's children.
+Fetches a child node by its index. Each child node has an index relative its siblings (see :ref:`get_index<class_Node_method_get_index>`). The first child is at index 0. Negative values can also be used to start from the end of the list. This method can be used in combination with :ref:`get_child_count<class_Node_method_get_child_count>` to iterate over this node's children. If no child exists at the given index, this method returns ``null`` and an error is generated.
 
 If ``include_internal`` is ``false``, internal children are ignored (see :ref:`add_child<class_Node_method_add_child>`'s ``internal`` parameter).
 
@@ -2445,7 +2471,7 @@ Removes the node from the given ``group``. Does nothing if the node is not in th
 
 void **reparent** **(** :ref:`Node<class_Node>` new_parent, :ref:`bool<class_bool>` keep_global_transform=true **)**
 
-Changes the parent of this **Node** to the ``new_parent``. The node needs to already have a parent.
+Changes the parent of this **Node** to the ``new_parent``. The node needs to already have a parent. The node's :ref:`owner<class_Node_property_owner>` is preserved if its owner is still reachable from the new location (i.e., the node is still a descendant of the new parent after the operation).
 
 If ``keep_global_transform`` is ``true``, the node's global transform will be preserved if supported. :ref:`Node2D<class_Node2D>`, :ref:`Node3D<class_Node3D>` and :ref:`Control<class_Control>` support this argument (but :ref:`Control<class_Control>` keeps only position).
 
@@ -2593,7 +2619,7 @@ If ``recursive`` is ``true``, the given peer is recursively set as the authority
 
 void **set_physics_process** **(** :ref:`bool<class_bool>` enable **)**
 
-If set to ``true``, enables physics (fixed framerate) processing. When a node is being processed, it will receive a :ref:`NOTIFICATION_PHYSICS_PROCESS<class_Node_constant_NOTIFICATION_PHYSICS_PROCESS>` at a fixed (usually 60 FPS, see :ref:`Engine.physics_ticks_per_second<class_Engine_property_physics_ticks_per_second>` to change) interval (and the :ref:`_physics_process<class_Node_private_method__physics_process>` callback will be called if exists). Enabled automatically if :ref:`_physics_process<class_Node_private_method__physics_process>` is overridden.
+If set to ``true``, enables physics (fixed framerate) processing. When a node is being processed, it will receive a :ref:`NOTIFICATION_PHYSICS_PROCESS<class_Node_constant_NOTIFICATION_PHYSICS_PROCESS>` at a fixed (usually 60 FPS, see :ref:`Engine.physics_ticks_per_second<class_Engine_property_physics_ticks_per_second>` to change) interval (and the :ref:`_physics_process<class_Node_private_method__physics_process>` callback will be called if it exists). Enabled automatically if :ref:`_physics_process<class_Node_private_method__physics_process>` is overridden.
 
 .. rst-class:: classref-item-separator
 
@@ -2619,7 +2645,9 @@ If set to ``true``, enables internal physics for this node. Internal physics pro
 
 void **set_process** **(** :ref:`bool<class_bool>` enable **)**
 
-If set to ``true``, enables processing. When a node is being processed, it will receive a :ref:`NOTIFICATION_PROCESS<class_Node_constant_NOTIFICATION_PROCESS>` on every drawn frame (and the :ref:`_process<class_Node_private_method__process>` callback will be called if exists). Enabled automatically if :ref:`_process<class_Node_private_method__process>` is overridden.
+If set to ``true``, enables processing. When a node is being processed, it will receive a :ref:`NOTIFICATION_PROCESS<class_Node_constant_NOTIFICATION_PROCESS>` on every drawn frame (and the :ref:`_process<class_Node_private_method__process>` callback will be called if it exists). Enabled automatically if :ref:`_process<class_Node_private_method__process>` is overridden.
+
+\ **Note:** This method only affects the :ref:`_process<class_Node_private_method__process>` callback, i.e. it has no effect on other callbacks like :ref:`_physics_process<class_Node_private_method__physics_process>`. If you want to disable all processing for the node, set :ref:`process_mode<class_Node_property_process_mode>` to :ref:`PROCESS_MODE_DISABLED<class_Node_constant_PROCESS_MODE_DISABLED>`.
 
 .. rst-class:: classref-item-separator
 
