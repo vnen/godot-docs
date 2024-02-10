@@ -139,6 +139,8 @@ Methods
    +-----------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                               | :ref:`get_process_info<class_NavigationServer3D_method_get_process_info>` **(** :ref:`ProcessInfo<enum_NavigationServer3D_ProcessInfo>` process_info **)** |const|                                                                                                                                                                                                      |
    +-----------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                             | :ref:`is_baking_navigation_mesh<class_NavigationServer3D_method_is_baking_navigation_mesh>` **(** :ref:`NavigationMesh<class_NavigationMesh>` navigation_mesh **)** |const|                                                                                                                                                                                             |
+   +-----------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`RID<class_RID>`                               | :ref:`link_create<class_NavigationServer3D_method_link_create>` **(** **)**                                                                                                                                                                                                                                                                                             |
    +-----------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                             | :ref:`link_get_enabled<class_NavigationServer3D_method_link_get_enabled>` **(** :ref:`RID<class_RID>` link **)** |const|                                                                                                                                                                                                                                                |
@@ -989,6 +991,18 @@ Returns information about the current state of the NavigationServer. See :ref:`P
 
 ----
 
+.. _class_NavigationServer3D_method_is_baking_navigation_mesh:
+
+.. rst-class:: classref-method
+
+:ref:`bool<class_bool>` **is_baking_navigation_mesh** **(** :ref:`NavigationMesh<class_NavigationMesh>` navigation_mesh **)** |const|
+
+Returns ``true`` when the provided navigation mesh is being baked on a background thread.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_NavigationServer3D_method_link_create:
 
 .. rst-class:: classref-method
@@ -1239,7 +1253,7 @@ This function immediately forces synchronization of the specified navigation ``m
 
 Due to technical restrictions the current NavigationServer command queue will be flushed. This means all already queued update commands for this physics frame will be executed, even those intended for other maps, regions and agents not part of the specified map. The expensive computation of the navigation meshes and region connections of a map will only be done for the specified map. Other maps will receive the normal synchronization at the end of the physics frame. Should the specified map receive changes after the forced update it will update again as well when the other maps receive their update.
 
-Avoidance processing and dispatch of the ``safe_velocity`` signals is untouched by this function and continues to happen for all maps and agents at the end of the physics frame.
+Avoidance processing and dispatch of the ``safe_velocity`` signals is unaffected by this function and continues to happen for all maps and agents at the end of the physics frame.
 
 \ **Note:** With great power comes great responsibility. This function should only be used by users that really know what they are doing and have a good reason for it. Forcing an immediate update of a navigation map requires locking the NavigationServer and flushing the entire NavigationServer command queue. Not only can this severely impact the performance of a game but it can also introduce bugs if used inappropriately without much foresight.
 
