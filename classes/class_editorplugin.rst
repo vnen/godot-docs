@@ -217,7 +217,7 @@ Emitted when any project setting has changed.
 
 **resource_saved** **(** :ref:`Resource<class_Resource>` resource **)**
 
-Emitted when the given ``resource`` was saved on disc.
+Emitted when the given ``resource`` was saved on disc. See also :ref:`scene_saved<class_EditorPlugin_signal_scene_saved>`.
 
 .. rst-class:: classref-item-separator
 
@@ -241,7 +241,19 @@ Emitted when the scene is changed in the editor. The argument will return the ro
 
 **scene_closed** **(** :ref:`String<class_String>` filepath **)**
 
-Emitted when user closes a scene. The argument is file path to a closed scene.
+Emitted when user closes a scene. The argument is a file path to the closed scene.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_EditorPlugin_signal_scene_saved:
+
+.. rst-class:: classref-signal
+
+**scene_saved** **(** :ref:`String<class_String>` filepath **)**
+
+Emitted when a scene was saved on disc. The argument is a file path to the saved scene. See also :ref:`resource_saved<class_EditorPlugin_signal_resource_saved>`.
 
 .. rst-class:: classref-section-separator
 
@@ -970,7 +982,7 @@ Implement this function if your plugin edits a specific type of object (Resource
 
 Returns ``true`` if this is a main screen editor plugin (it goes in the workspace selector together with **2D**, **3D**, **Script** and **AssetLib**).
 
-When the plugin's workspace is selected, other main screen plugins will be hidden, but your plugin will not appear automatically. It needs to be added as a child of :ref:`EditorInterface.get_base_control<class_EditorInterface_method_get_base_control>` and made visible inside :ref:`_make_visible<class_EditorPlugin_private_method__make_visible>`.
+When the plugin's workspace is selected, other main screen plugins will be hidden, but your plugin will not appear automatically. It needs to be added as a child of :ref:`EditorInterface.get_editor_main_screen<class_EditorInterface_method_get_editor_main_screen>` and made visible inside :ref:`_make_visible<class_EditorPlugin_private_method__make_visible>`.
 
 Use :ref:`_get_plugin_name<class_EditorPlugin_private_method__get_plugin_name>` and :ref:`_get_plugin_icon<class_EditorPlugin_private_method__get_plugin_icon>` to customize the plugin button's appearance.
 

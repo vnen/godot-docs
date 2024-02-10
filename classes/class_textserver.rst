@@ -56,6 +56,8 @@ Methods
    +-----------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`float<class_float>`                                       | :ref:`font_get_ascent<class_TextServer_method_font_get_ascent>` **(** :ref:`RID<class_RID>` font_rid, :ref:`int<class_int>` size **)** |const|                                                                                                                                                                                                                         |
    +-----------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`float<class_float>`                                       | :ref:`font_get_baseline_offset<class_TextServer_method_font_get_baseline_offset>` **(** :ref:`RID<class_RID>` font_rid **)** |const|                                                                                                                                                                                                                                   |
+   +-----------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                                           | :ref:`font_get_char_from_glyph_index<class_TextServer_method_font_get_char_from_glyph_index>` **(** :ref:`RID<class_RID>` font_rid, :ref:`int<class_int>` size, :ref:`int<class_int>` glyph_index **)** |const|                                                                                                                                                        |
    +-----------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`float<class_float>`                                       | :ref:`font_get_descent<class_TextServer_method_font_get_descent>` **(** :ref:`RID<class_RID>` font_rid, :ref:`int<class_int>` size **)** |const|                                                                                                                                                                                                                       |
@@ -185,6 +187,8 @@ Methods
    | void                                                            | :ref:`font_set_antialiasing<class_TextServer_method_font_set_antialiasing>` **(** :ref:`RID<class_RID>` font_rid, :ref:`FontAntialiasing<enum_TextServer_FontAntialiasing>` antialiasing **)**                                                                                                                                                                         |
    +-----------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                                            | :ref:`font_set_ascent<class_TextServer_method_font_set_ascent>` **(** :ref:`RID<class_RID>` font_rid, :ref:`int<class_int>` size, :ref:`float<class_float>` ascent **)**                                                                                                                                                                                               |
+   +-----------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | void                                                            | :ref:`font_set_baseline_offset<class_TextServer_method_font_set_baseline_offset>` **(** :ref:`RID<class_RID>` font_rid, :ref:`float<class_float>` baseline_offset **)**                                                                                                                                                                                                |
    +-----------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                                            | :ref:`font_set_data<class_TextServer_method_font_set_data>` **(** :ref:`RID<class_RID>` font_rid, :ref:`PackedByteArray<class_PackedByteArray>` data **)**                                                                                                                                                                                                             |
    +-----------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -542,7 +546,7 @@ Vertical BGR subpixel layout.
 
 :ref:`FontLCDSubpixelLayout<enum_TextServer_FontLCDSubpixelLayout>` **FONT_LCD_SUBPIXEL_LAYOUT_MAX** = ``5``
 
-
+Represents the size of the :ref:`FontLCDSubpixelLayout<enum_TextServer_FontLCDSubpixelLayout>` enum.
 
 .. rst-class:: classref-item-separator
 
@@ -952,7 +956,7 @@ Determines whether the ellipsis at the end of the text is enforced and may not b
 
 :ref:`TextOverrunFlag<enum_TextServer_TextOverrunFlag>` **OVERRUN_JUSTIFICATION_AWARE** = ``16``
 
-
+Accounts for the text being justified before attempting to trim it (see :ref:`JustificationFlag<enum_TextServer_JustificationFlag>`).
 
 .. rst-class:: classref-item-separator
 
@@ -1380,7 +1384,7 @@ Spacing at the bottom of the line.
 
 :ref:`SpacingType<enum_TextServer_SpacingType>` **SPACING_MAX** = ``4``
 
-
+Represents the size of the :ref:`SpacingType<enum_TextServer_SpacingType>` enum.
 
 .. rst-class:: classref-item-separator
 
@@ -1680,6 +1684,18 @@ Returns font anti-aliasing mode.
 :ref:`float<class_float>` **font_get_ascent** **(** :ref:`RID<class_RID>` font_rid, :ref:`int<class_int>` size **)** |const|
 
 Returns the font ascent (number of pixels above the baseline).
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_TextServer_method_font_get_baseline_offset:
+
+.. rst-class:: classref-method
+
+:ref:`float<class_float>` **font_get_baseline_offset** **(** :ref:`RID<class_RID>` font_rid **)** |const|
+
+Returns extra baseline offset (as a fraction of font height).
 
 .. rst-class:: classref-item-separator
 
@@ -2476,6 +2492,18 @@ Sets font anti-aliasing mode.
 void **font_set_ascent** **(** :ref:`RID<class_RID>` font_rid, :ref:`int<class_int>` size, :ref:`float<class_float>` ascent **)**
 
 Sets the font ascent (number of pixels above the baseline).
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_TextServer_method_font_set_baseline_offset:
+
+.. rst-class:: classref-method
+
+void **font_set_baseline_offset** **(** :ref:`RID<class_RID>` font_rid, :ref:`float<class_float>` baseline_offset **)**
+
+Sets extra baseline offset (as a fraction of font height).
 
 .. rst-class:: classref-item-separator
 
