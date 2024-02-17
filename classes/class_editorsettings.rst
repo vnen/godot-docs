@@ -83,6 +83,8 @@ Properties
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`       | :ref:`docks/scene_tree/auto_expand_to_selected<class_EditorSettings_property_docks/scene_tree/auto_expand_to_selected>`                                                             |
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`       | :ref:`docks/scene_tree/center_node_on_reparent<class_EditorSettings_property_docks/scene_tree/center_node_on_reparent>`                                                             |
+   +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`       | :ref:`docks/scene_tree/start_create_dialog_fully_expanded<class_EditorSettings_property_docks/scene_tree/start_create_dialog_fully_expanded>`                                       |
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Color<class_Color>`     | :ref:`editors/2d/bone_color1<class_EditorSettings_property_editors/2d/bone_color1>`                                                                                                 |
@@ -245,7 +247,7 @@ Properties
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`         | :ref:`filesystem/file_dialog/thumbnail_size<class_EditorSettings_property_filesystem/file_dialog/thumbnail_size>`                                                                   |
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`String<class_String>`   | :ref:`filesystem/import/blender/blender3_path<class_EditorSettings_property_filesystem/import/blender/blender3_path>`                                                               |
+   | :ref:`String<class_String>`   | :ref:`filesystem/import/blender/blender_path<class_EditorSettings_property_filesystem/import/blender/blender_path>`                                                                 |
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`         | :ref:`filesystem/import/blender/rpc_port<class_EditorSettings_property_filesystem/import/blender/rpc_port>`                                                                         |
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -309,6 +311,8 @@ Properties
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`         | :ref:`interface/editor/show_internal_errors_in_toast_notifications<class_EditorSettings_property_interface/editor/show_internal_errors_in_toast_notifications>`                     |
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`         | :ref:`interface/editor/show_update_spinner<class_EditorSettings_property_interface/editor/show_update_spinner>`                                                                     |
+   +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`       | :ref:`interface/editor/single_window_mode<class_EditorSettings_property_interface/editor/single_window_mode>`                                                                       |
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`         | :ref:`interface/editor/ui_layout_direction<class_EditorSettings_property_interface/editor/ui_layout_direction>`                                                                     |
@@ -316,6 +320,8 @@ Properties
    | :ref:`float<class_float>`     | :ref:`interface/editor/unfocused_low_processor_mode_sleep_usec<class_EditorSettings_property_interface/editor/unfocused_low_processor_mode_sleep_usec>`                             |
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`       | :ref:`interface/editor/use_embedded_menu<class_EditorSettings_property_interface/editor/use_embedded_menu>`                                                                         |
+   +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`         | :ref:`interface/editor/vsync_mode<class_EditorSettings_property_interface/editor/vsync_mode>`                                                                                       |
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`float<class_float>`     | :ref:`interface/inspector/float_drag_speed<class_EditorSettings_property_interface/inspector/float_drag_speed>`                                                                     |
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -339,9 +345,11 @@ Properties
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Color<class_Color>`     | :ref:`interface/theme/accent_color<class_EditorSettings_property_interface/theme/accent_color>`                                                                                     |
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`float<class_float>`     | :ref:`interface/theme/additional_spacing<class_EditorSettings_property_interface/theme/additional_spacing>`                                                                         |
+   | :ref:`int<class_int>`         | :ref:`interface/theme/additional_spacing<class_EditorSettings_property_interface/theme/additional_spacing>`                                                                         |
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Color<class_Color>`     | :ref:`interface/theme/base_color<class_EditorSettings_property_interface/theme/base_color>`                                                                                         |
+   +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`         | :ref:`interface/theme/base_spacing<class_EditorSettings_property_interface/theme/base_spacing>`                                                                                     |
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`         | :ref:`interface/theme/border_size<class_EditorSettings_property_interface/theme/border_size>`                                                                                       |
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -361,6 +369,8 @@ Properties
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`float<class_float>`     | :ref:`interface/theme/relationship_line_opacity<class_EditorSettings_property_interface/theme/relationship_line_opacity>`                                                           |
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`String<class_String>`   | :ref:`interface/theme/spacing_preset<class_EditorSettings_property_interface/theme/spacing_preset>`                                                                                 |
+   +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`       | :ref:`interface/touchscreen/enable_long_press_as_right_click<class_EditorSettings_property_interface/touchscreen/enable_long_press_as_right_click>`                                 |
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`       | :ref:`interface/touchscreen/enable_pan_and_scale_gestures<class_EditorSettings_property_interface/touchscreen/enable_pan_and_scale_gestures>`                                       |
@@ -368,6 +378,8 @@ Properties
    | :ref:`bool<class_bool>`       | :ref:`interface/touchscreen/increase_scrollbar_touch_area<class_EditorSettings_property_interface/touchscreen/increase_scrollbar_touch_area>`                                       |
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`float<class_float>`     | :ref:`interface/touchscreen/scale_gizmo_handles<class_EditorSettings_property_interface/touchscreen/scale_gizmo_handles>`                                                           |
+   +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`         | :ref:`network/connection/network_mode<class_EditorSettings_property_network/connection/network_mode>`                                                                               |
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`String<class_String>`   | :ref:`network/debug/remote_host<class_EditorSettings_property_network/debug/remote_host>`                                                                                           |
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -392,6 +404,8 @@ Properties
    | :ref:`bool<class_bool>`       | :ref:`run/output/always_open_output_on_play<class_EditorSettings_property_run/output/always_open_output_on_play>`                                                                   |
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`         | :ref:`run/output/font_size<class_EditorSettings_property_run/output/font_size>`                                                                                                     |
+   +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`       | :ref:`run/platforms/linuxbsd/prefer_wayland<class_EditorSettings_property_run/platforms/linuxbsd/prefer_wayland>`                                                                   |
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`         | :ref:`run/window_placement/android_window<class_EditorSettings_property_run/window_placement/android_window>`                                                                       |
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -813,6 +827,18 @@ If ``true``, the scene tree dock will automatically unfold nodes when a node tha
 
 ----
 
+.. _class_EditorSettings_property_docks/scene_tree/center_node_on_reparent:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **docks/scene_tree/center_node_on_reparent**
+
+If ``true``, new node created when reparenting node(s) will be positioned at the average position of the selected node(s).
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_EditorSettings_property_docks/scene_tree/start_create_dialog_fully_expanded:
 
 .. rst-class:: classref-property
@@ -979,7 +1005,9 @@ The color of the viewport border in the 2D editor. This border represents the vi
 
 :ref:`float<class_float>` **editors/3d/default_fov**
 
-The default camera field of view to use in the 3D editor (in degrees). The camera field of view can be adjusted on a per-scene basis using the **View** menu at the top of the 3D editor. If a scene had its camera field of view adjusted using the **View** menu, this setting is ignored in the scene in question. This setting is also ignored while a Camera3D node is being previewed in the editor.
+The default camera vertical field of view to use in the 3D editor (in degrees). The camera field of view can be adjusted on a per-scene basis using the **View** menu at the top of the 3D editor. If a scene had its camera field of view adjusted using the **View** menu, this setting is ignored in the scene in question. This setting is also ignored while a :ref:`Camera3D<class_Camera3D>` node is being previewed in the editor.
+
+\ **Note:** The editor camera always uses the **Keep Height** aspect mode.
 
 .. rst-class:: classref-item-separator
 
@@ -991,7 +1019,7 @@ The default camera field of view to use in the 3D editor (in degrees). The camer
 
 :ref:`float<class_float>` **editors/3d/default_z_far**
 
-The default camera far clip distance to use in the 3D editor (in degrees). Higher values make it possible to view objects placed further away from the camera, at the cost of lower precision in the depth buffer (which can result in visible Z-fighting in the distance). The camera far clip distance can be adjusted on a per-scene basis using the **View** menu at the top of the 3D editor. If a scene had its camera far clip distance adjusted using the **View** menu, this setting is ignored in the scene in question. This setting is also ignored while a Camera3D node is being previewed in the editor.
+The default camera far clip distance to use in the 3D editor (in degrees). Higher values make it possible to view objects placed further away from the camera, at the cost of lower precision in the depth buffer (which can result in visible Z-fighting in the distance). The camera far clip distance can be adjusted on a per-scene basis using the **View** menu at the top of the 3D editor. If a scene had its camera far clip distance adjusted using the **View** menu, this setting is ignored in the scene in question. This setting is also ignored while a :ref:`Camera3D<class_Camera3D>` node is being previewed in the editor.
 
 .. rst-class:: classref-item-separator
 
@@ -1003,7 +1031,7 @@ The default camera far clip distance to use in the 3D editor (in degrees). Highe
 
 :ref:`float<class_float>` **editors/3d/default_z_near**
 
-The default camera near clip distance to use in the 3D editor (in degrees). Lower values make it possible to view objects placed closer to the camera, at the cost of lower precision in the depth buffer (which can result in visible Z-fighting in the distance). The camera near clip distance can be adjusted on a per-scene basis using the **View** menu at the top of the 3D editor. If a scene had its camera near clip distance adjusted using the **View** menu, this setting is ignored in the scene in question. This setting is also ignored while a Camera3D node is being previewed in the editor.
+The default camera near clip distance to use in the 3D editor (in degrees). Lower values make it possible to view objects placed closer to the camera, at the cost of lower precision in the depth buffer (which can result in visible Z-fighting in the distance). The camera near clip distance can be adjusted on a per-scene basis using the **View** menu at the top of the 3D editor. If a scene had its camera near clip distance adjusted using the **View** menu, this setting is ignored in the scene in question. This setting is also ignored while a :ref:`Camera3D<class_Camera3D>` node is being previewed in the editor.
 
 .. rst-class:: classref-item-separator
 
@@ -1849,11 +1877,11 @@ The thumbnail size to use in the editor's file dialogs (in pixels). See also :re
 
 ----
 
-.. _class_EditorSettings_property_filesystem/import/blender/blender3_path:
+.. _class_EditorSettings_property_filesystem/import/blender/blender_path:
 
 .. rst-class:: classref-property
 
-:ref:`String<class_String>` **filesystem/import/blender/blender3_path**
+:ref:`String<class_String>` **filesystem/import/blender/blender_path**
 
 The path to the directory containing the Blender executable used for converting the Blender 3D scene files ``.blend`` to glTF 2.0 format during import. Blender 3.0 or later is required.
 
@@ -2273,7 +2301,23 @@ If ``true``, the editor's Script tab will have a separate distraction mode setti
 
 If enabled, displays internal engine errors in toast notifications (toggleable by clicking the "bell" icon at the bottom of the editor). No matter the value of this setting, non-internal engine errors will always be visible in toast notifications.
 
-The default **Auto** value will only enable this if the editor was compiled with the ``dev=yes`` option (the default is ``dev=no``).
+The default **Auto** value will only enable this if the editor was compiled with the ``dev_build=yes`` SCons option (the default is ``dev_build=no``).
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_EditorSettings_property_interface/editor/show_update_spinner:
+
+.. rst-class:: classref-property
+
+:ref:`int<class_int>` **interface/editor/show_update_spinner**
+
+If enabled, displays an icon in the top-right corner of the editor that spins when the editor redraws a frame. This can be used to diagnose situations where the engine is constantly redrawing, which should be avoided as this increases CPU and GPU utilization for no good reason. To further troubleshoot these situations, start the editor with the ``--debug-canvas-item-redraw`` :doc:`command line argument <../tutorials/editor/command_line_tutorial>`.
+
+Consider enabling this if you are developing editor plugins to ensure they only make the editor redraw when required.
+
+The default **Auto** value will only enable this if the editor was compiled with the ``dev_build=yes`` SCons option (the default is ``dev_build=no``).
 
 .. rst-class:: classref-item-separator
 
@@ -2286,6 +2330,8 @@ The default **Auto** value will only enable this if the editor was compiled with
 :ref:`bool<class_bool>` **interface/editor/single_window_mode**
 
 If ``true``, embed modal windows such as docks inside the main editor window. When single-window mode is enabled, tooltips will also be embedded inside the main editor window, which means they can't be displayed outside of the editor window.
+
+\ **Note:** To query whether the editor can use multiple windows in an editor plugin, use :ref:`EditorInterface.is_multi_window_enabled<class_EditorInterface_method_is_multi_window_enabled>` instead of querying the value of this editor setting.
 
 .. rst-class:: classref-item-separator
 
@@ -2324,6 +2370,22 @@ When the editor window is unfocused, the amount of sleeping between frames when 
 If ``true``, editor main menu is using embedded :ref:`MenuBar<class_MenuBar>` instead of system global menu.
 
 Specific to the macOS platform.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_EditorSettings_property_interface/editor/vsync_mode:
+
+.. rst-class:: classref-property
+
+:ref:`int<class_int>` **interface/editor/vsync_mode**
+
+Sets the V-Sync mode for the editor. Does not affect the project when run from the editor (this is controlled by :ref:`ProjectSettings.display/window/vsync/vsync_mode<class_ProjectSettings_property_display/window/vsync/vsync_mode>`).
+
+Depending on the platform and used renderer, the engine will fall back to **Enabled** if the desired mode is not supported.
+
+\ **Note:** V-Sync modes other than **Enabled** are only supported in the Forward+ and Mobile rendering methods, not Compatibility.
 
 .. rst-class:: classref-item-separator
 
@@ -2371,9 +2433,11 @@ If ``true``, display OpenType features marked as ``hidden`` by the font file in 
 
 :ref:`bool<class_bool>` **interface/multi_window/enable**
 
-If ``true``, the multi window support in editor is enabled. The following panels can become dedicated windows (made floating): Docks, Script editor, and Shader editor.
+If ``true``, multiple window support in editor is enabled. The following panels can become dedicated windows (i.e. made floating): Docks, Script editor, and Shader editor.
 
 \ **Note:** When :ref:`interface/editor/single_window_mode<class_EditorSettings_property_interface/editor/single_window_mode>` is ``true``, the multi window support is always disabled.
+
+\ **Note:** To query whether the editor can use multiple windows in an editor plugin, use :ref:`EditorInterface.is_multi_window_enabled<class_EditorInterface_method_is_multi_window_enabled>` instead of querying the value of this editor setting.
 
 .. rst-class:: classref-item-separator
 
@@ -2469,9 +2533,11 @@ The color to use for "highlighted" user interface elements in the editor (presse
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **interface/theme/additional_spacing**
+:ref:`int<class_int>` **interface/theme/additional_spacing**
 
-The spacing to add for buttons and list items in the editor (in pixels). Increasing this value is useful to improve usability on touch screens, at the cost of reducing the amount of usable screen real estate.
+The extra spacing to add to various GUI elements in the editor (in pixels). Increasing this value is useful to improve usability on touch screens, at the cost of reducing the amount of usable screen real estate.
+
+See also :ref:`interface/theme/spacing_preset<class_EditorSettings_property_interface/theme/spacing_preset>`.
 
 .. rst-class:: classref-item-separator
 
@@ -2484,6 +2550,18 @@ The spacing to add for buttons and list items in the editor (in pixels). Increas
 :ref:`Color<class_Color>` **interface/theme/base_color**
 
 The base color to use for user interface elements in the editor. Secondary colors (such as darker/lighter variants) are derived from this color.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_EditorSettings_property_interface/theme/base_spacing:
+
+.. rst-class:: classref-property
+
+:ref:`int<class_int>` **interface/theme/base_spacing**
+
+The base spacing used by various GUI elements in the editor (in pixels). See also :ref:`interface/theme/spacing_preset<class_EditorSettings_property_interface/theme/spacing_preset>`.
 
 .. rst-class:: classref-item-separator
 
@@ -2605,6 +2683,18 @@ The opacity to use when drawing relationship lines in the editor's :ref:`Tree<cl
 
 ----
 
+.. _class_EditorSettings_property_interface/theme/spacing_preset:
+
+.. rst-class:: classref-property
+
+:ref:`String<class_String>` **interface/theme/spacing_preset**
+
+The editor theme spacing preset to use. See also :ref:`interface/theme/base_spacing<class_EditorSettings_property_interface/theme/base_spacing>` and :ref:`interface/theme/additional_spacing<class_EditorSettings_property_interface/theme/additional_spacing>`.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_EditorSettings_property_interface/touchscreen/enable_long_press_as_right_click:
 
 .. rst-class:: classref-property
@@ -2656,6 +2746,18 @@ If ``true``, increases the scrollbar touch area to improve usability on touchscr
 Specify the multiplier to apply to the scale for the editor gizmo handles to improve usability on touchscreen devices.
 
 \ **Note:** Defaults to ``1`` on non-touchscreen devices.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_EditorSettings_property_network/connection/network_mode:
+
+.. rst-class:: classref-property
+
+:ref:`int<class_int>` **network/connection/network_mode**
+
+Determines whether online features are enabled in the editor, such as the Asset Library. Setting this property to "Offline" is recommended to limit editor's internet activity, especially if privacy is a concern.
 
 .. rst-class:: classref-item-separator
 
@@ -2804,6 +2906,18 @@ If ``true``, the editor will expand the Output panel when running the project.
 :ref:`int<class_int>` **run/output/font_size**
 
 The size of the font in the **Output** panel at the bottom of the editor. This setting does not impact the font size of the script editor (see :ref:`interface/editor/code_font_size<class_EditorSettings_property_interface/editor/code_font_size>`).
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_EditorSettings_property_run/platforms/linuxbsd/prefer_wayland:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **run/platforms/linuxbsd/prefer_wayland**
+
+If ``true``, on Linux/BSD, the editor will check for Wayland first instead of X11 (if available).
 
 .. rst-class:: classref-item-separator
 
@@ -3279,7 +3393,7 @@ The number of pixels to scroll with every mouse wheel increment. Higher values m
 
 :ref:`bool<class_bool>` **text_editor/completion/add_type_hints**
 
-If ``true``, adds static typing hints such as ``-> void`` and ``: int`` when using code autocompletion or when creating onready variables by drag and dropping nodes into the script editor while pressing the :kbd:`Ctrl` key.
+If ``true``, adds :doc:`GDScript static typing <../tutorials/scripting/gdscript/static_typing>` hints such as ``-> void`` and ``: int`` when using code autocompletion or when creating onready variables by drag and dropping nodes into the script editor while pressing the :kbd:`Ctrl` key. If ``true``, newly created scripts will also automatically have type hints added to their method parameters and return types.
 
 .. rst-class:: classref-item-separator
 

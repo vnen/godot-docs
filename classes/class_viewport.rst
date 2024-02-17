@@ -99,6 +99,8 @@ Properties
    +-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+----------------+
    | :ref:`bool<class_bool>`                                                                       | :ref:`physics_object_picking<class_Viewport_property_physics_object_picking>`                         | ``false``      |
    +-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+----------------+
+   | :ref:`bool<class_bool>`                                                                       | :ref:`physics_object_picking_first_only<class_Viewport_property_physics_object_picking_first_only>`   | ``false``      |
+   +-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+----------------+
    | :ref:`bool<class_bool>`                                                                       | :ref:`physics_object_picking_sort<class_Viewport_property_physics_object_picking_sort>`               | ``false``      |
    +-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+----------------+
    | :ref:`bool<class_bool>`                                                                       | :ref:`positional_shadow_atlas_16_bits<class_Viewport_property_positional_shadow_atlas_16_bits>`       | ``true``       |
@@ -510,6 +512,10 @@ enum **RenderInfoType**:
 
 :ref:`RenderInfoType<enum_Viewport_RenderInfoType>` **RENDER_INFO_TYPE_VISIBLE** = ``0``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_Viewport_constant_RENDER_INFO_TYPE_SHADOW:
@@ -518,6 +524,10 @@ enum **RenderInfoType**:
 
 :ref:`RenderInfoType<enum_Viewport_RenderInfoType>` **RENDER_INFO_TYPE_SHADOW** = ``1``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_Viewport_constant_RENDER_INFO_TYPE_MAX:
@@ -525,6 +535,10 @@ enum **RenderInfoType**:
 .. rst-class:: classref-enumeration-constant
 
 :ref:`RenderInfoType<enum_Viewport_RenderInfoType>` **RENDER_INFO_TYPE_MAX** = ``2``
+
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 
 
@@ -560,6 +574,10 @@ Objects are displayed without light information.
 
 :ref:`DebugDraw<enum_Viewport_DebugDraw>` **DEBUG_DRAW_LIGHTING** = ``2``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_Viewport_constant_DEBUG_DRAW_OVERDRAW:
@@ -583,6 +601,10 @@ Objects are displayed in wireframe style.
 .. rst-class:: classref-enumeration-constant
 
 :ref:`DebugDraw<enum_Viewport_DebugDraw>` **DEBUG_DRAW_NORMAL_BUFFER** = ``5``
+
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 
 
@@ -632,6 +654,10 @@ Draws the shadow atlas that stores shadows from :ref:`DirectionalLight3D<class_D
 
 :ref:`DebugDraw<enum_Viewport_DebugDraw>` **DEBUG_DRAW_SCENE_LUMINANCE** = ``11``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_Viewport_constant_DEBUG_DRAW_SSAO:
@@ -672,6 +698,10 @@ Draws the decal atlas used by :ref:`Decal<class_Decal>`\ s and light projector t
 
 :ref:`DebugDraw<enum_Viewport_DebugDraw>` **DEBUG_DRAW_SDFGI** = ``16``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_Viewport_constant_DEBUG_DRAW_SDFGI_PROBES:
@@ -679,6 +709,10 @@ Draws the decal atlas used by :ref:`Decal<class_Decal>`\ s and light projector t
 .. rst-class:: classref-enumeration-constant
 
 :ref:`DebugDraw<enum_Viewport_DebugDraw>` **DEBUG_DRAW_SDFGI_PROBES** = ``17``
+
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 
 
@@ -688,6 +722,10 @@ Draws the decal atlas used by :ref:`Decal<class_Decal>`\ s and light projector t
 
 :ref:`DebugDraw<enum_Viewport_DebugDraw>` **DEBUG_DRAW_GI_BUFFER** = ``18``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_Viewport_constant_DEBUG_DRAW_DISABLE_LOD:
@@ -695,6 +733,10 @@ Draws the decal atlas used by :ref:`Decal<class_Decal>`\ s and light projector t
 .. rst-class:: classref-enumeration-constant
 
 :ref:`DebugDraw<enum_Viewport_DebugDraw>` **DEBUG_DRAW_DISABLE_LOD** = ``19``
+
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 
 
@@ -704,6 +746,10 @@ Draws the decal atlas used by :ref:`Decal<class_Decal>`\ s and light projector t
 
 :ref:`DebugDraw<enum_Viewport_DebugDraw>` **DEBUG_DRAW_CLUSTER_OMNI_LIGHTS** = ``20``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_Viewport_constant_DEBUG_DRAW_CLUSTER_SPOT_LIGHTS:
@@ -711,6 +757,10 @@ Draws the decal atlas used by :ref:`Decal<class_Decal>`\ s and light projector t
 .. rst-class:: classref-enumeration-constant
 
 :ref:`DebugDraw<enum_Viewport_DebugDraw>` **DEBUG_DRAW_CLUSTER_SPOT_LIGHTS** = ``21``
+
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 
 
@@ -720,6 +770,10 @@ Draws the decal atlas used by :ref:`Decal<class_Decal>`\ s and light projector t
 
 :ref:`DebugDraw<enum_Viewport_DebugDraw>` **DEBUG_DRAW_CLUSTER_DECALS** = ``22``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_Viewport_constant_DEBUG_DRAW_CLUSTER_REFLECTION_PROBES:
@@ -727,6 +781,10 @@ Draws the decal atlas used by :ref:`Decal<class_Decal>`\ s and light projector t
 .. rst-class:: classref-enumeration-constant
 
 :ref:`DebugDraw<enum_Viewport_DebugDraw>` **DEBUG_DRAW_CLUSTER_REFLECTION_PROBES** = ``23``
+
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 
 
@@ -736,6 +794,10 @@ Draws the decal atlas used by :ref:`Decal<class_Decal>`\ s and light projector t
 
 :ref:`DebugDraw<enum_Viewport_DebugDraw>` **DEBUG_DRAW_OCCLUDERS** = ``24``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_Viewport_constant_DEBUG_DRAW_MOTION_VECTORS:
@@ -743,6 +805,10 @@ Draws the decal atlas used by :ref:`Decal<class_Decal>`\ s and light projector t
 .. rst-class:: classref-enumeration-constant
 
 :ref:`DebugDraw<enum_Viewport_DebugDraw>` **DEBUG_DRAW_MOTION_VECTORS** = ``25``
+
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 
 
@@ -866,6 +932,10 @@ enum **SDFOversize**:
 
 :ref:`SDFOversize<enum_Viewport_SDFOversize>` **SDF_OVERSIZE_100_PERCENT** = ``0``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_Viewport_constant_SDF_OVERSIZE_120_PERCENT:
@@ -873,6 +943,10 @@ enum **SDFOversize**:
 .. rst-class:: classref-enumeration-constant
 
 :ref:`SDFOversize<enum_Viewport_SDFOversize>` **SDF_OVERSIZE_120_PERCENT** = ``1``
+
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 
 
@@ -882,6 +956,10 @@ enum **SDFOversize**:
 
 :ref:`SDFOversize<enum_Viewport_SDFOversize>` **SDF_OVERSIZE_150_PERCENT** = ``2``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_Viewport_constant_SDF_OVERSIZE_200_PERCENT:
@@ -890,6 +968,10 @@ enum **SDFOversize**:
 
 :ref:`SDFOversize<enum_Viewport_SDFOversize>` **SDF_OVERSIZE_200_PERCENT** = ``3``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_Viewport_constant_SDF_OVERSIZE_MAX:
@@ -897,6 +979,10 @@ enum **SDFOversize**:
 .. rst-class:: classref-enumeration-constant
 
 :ref:`SDFOversize<enum_Viewport_SDFOversize>` **SDF_OVERSIZE_MAX** = ``4``
+
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 
 
@@ -916,6 +1002,10 @@ enum **SDFScale**:
 
 :ref:`SDFScale<enum_Viewport_SDFScale>` **SDF_SCALE_100_PERCENT** = ``0``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_Viewport_constant_SDF_SCALE_50_PERCENT:
@@ -923,6 +1013,10 @@ enum **SDFScale**:
 .. rst-class:: classref-enumeration-constant
 
 :ref:`SDFScale<enum_Viewport_SDFScale>` **SDF_SCALE_50_PERCENT** = ``1``
+
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 
 
@@ -932,6 +1026,10 @@ enum **SDFScale**:
 
 :ref:`SDFScale<enum_Viewport_SDFScale>` **SDF_SCALE_25_PERCENT** = ``2``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_Viewport_constant_SDF_SCALE_MAX:
@@ -939,6 +1037,10 @@ enum **SDFScale**:
 .. rst-class:: classref-enumeration-constant
 
 :ref:`SDFScale<enum_Viewport_SDFScale>` **SDF_SCALE_MAX** = ``3``
+
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 
 
@@ -1323,6 +1425,27 @@ If ``true``, the viewport will use a unique copy of the :ref:`World3D<class_Worl
 If ``true``, the objects rendered by viewport become subjects of mouse picking process.
 
 \ **Note:** The number of simultaneously pickable objects is limited to 64 and they are selected in a non-deterministic order, which can be different in each picking process.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_Viewport_property_physics_object_picking_first_only:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **physics_object_picking_first_only** = ``false``
+
+.. rst-class:: classref-property-setget
+
+- void **set_physics_object_picking_first_only** **(** :ref:`bool<class_bool>` value **)**
+- :ref:`bool<class_bool>` **get_physics_object_picking_first_only** **(** **)**
+
+If ``true``, the input_event signal will only be sent to one physics object in the mouse picking process. If you want to get the top object only, you must also enable :ref:`physics_object_picking_sort<class_Viewport_property_physics_object_picking_sort>`.
+
+If ``false``, an input_event signal will be sent to all physics objects in the mouse picking process.
+
+This applies to 2D CanvasItem object picking only.
 
 .. rst-class:: classref-item-separator
 
@@ -2129,6 +2252,8 @@ Helper method which calls the ``set_text()`` method on the currently focused :re
 
 void **push_unhandled_input** **(** :ref:`InputEvent<class_InputEvent>` event, :ref:`bool<class_bool>` in_local_coords=false **)**
 
+**Deprecated:** Use :ref:`push_input<class_Viewport_method_push_input>` instead.
+
 Triggers the given :ref:`InputEvent<class_InputEvent>` in this **Viewport**. This can be used to pass input events between viewports, or to locally apply inputs that were sent over the network or saved to a file.
 
 If ``in_local_coords`` is ``false``, the event's position is in the embedder's coordinates and will be converted to viewport coordinates. If ``in_local_coords`` is ``true``, the event's position is in viewport coordinates.
@@ -2148,8 +2273,6 @@ If an earlier method marks the input as handled via :ref:`set_input_as_handled<c
 If none of the methods handle the event and :ref:`physics_object_picking<class_Viewport_property_physics_object_picking>` is ``true``, the event is used for physics object picking.
 
 \ **Note:** This method doesn't propagate input events to embedded :ref:`Window<class_Window>`\ s or :ref:`SubViewport<class_SubViewport>`\ s.
-
-\ *Deprecated.* Use :ref:`push_input<class_Viewport_method_push_input>` instead.
 
 .. rst-class:: classref-item-separator
 

@@ -10,6 +10,8 @@
 NavigationServer3D
 ==================
 
+**Experimental:** This class may be changed or removed in future versions.
+
 **Inherits:** :ref:`Object<class_Object>`
 
 A server interface for low-level 3D navigation access.
@@ -139,6 +141,8 @@ Methods
    +-----------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                               | :ref:`get_process_info<class_NavigationServer3D_method_get_process_info>` **(** :ref:`ProcessInfo<enum_NavigationServer3D_ProcessInfo>` process_info **)** |const|                                                                                                                                                                                                      |
    +-----------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                             | :ref:`is_baking_navigation_mesh<class_NavigationServer3D_method_is_baking_navigation_mesh>` **(** :ref:`NavigationMesh<class_NavigationMesh>` navigation_mesh **)** |const|                                                                                                                                                                                             |
+   +-----------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`RID<class_RID>`                               | :ref:`link_create<class_NavigationServer3D_method_link_create>` **(** **)**                                                                                                                                                                                                                                                                                             |
    +-----------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                             | :ref:`link_get_enabled<class_NavigationServer3D_method_link_get_enabled>` **(** :ref:`RID<class_RID>` link **)** |const|                                                                                                                                                                                                                                                |
@@ -201,6 +205,8 @@ Methods
    +-----------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`RID[]<class_RID>`                             | :ref:`map_get_links<class_NavigationServer3D_method_map_get_links>` **(** :ref:`RID<class_RID>` map **)** |const|                                                                                                                                                                                                                                                       |
    +-----------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`float<class_float>`                           | :ref:`map_get_merge_rasterizer_cell_scale<class_NavigationServer3D_method_map_get_merge_rasterizer_cell_scale>` **(** :ref:`RID<class_RID>` map **)** |const|                                                                                                                                                                                                           |
+   +-----------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`RID[]<class_RID>`                             | :ref:`map_get_obstacles<class_NavigationServer3D_method_map_get_obstacles>` **(** :ref:`RID<class_RID>` map **)** |const|                                                                                                                                                                                                                                               |
    +-----------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`PackedVector3Array<class_PackedVector3Array>` | :ref:`map_get_path<class_NavigationServer3D_method_map_get_path>` **(** :ref:`RID<class_RID>` map, :ref:`Vector3<class_Vector3>` origin, :ref:`Vector3<class_Vector3>` destination, :ref:`bool<class_bool>` optimize, :ref:`int<class_int>` navigation_layers=1 **)** |const|                                                                                           |
@@ -224,6 +230,8 @@ Methods
    | void                                                | :ref:`map_set_edge_connection_margin<class_NavigationServer3D_method_map_set_edge_connection_margin>` **(** :ref:`RID<class_RID>` map, :ref:`float<class_float>` margin **)**                                                                                                                                                                                           |
    +-----------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                                | :ref:`map_set_link_connection_radius<class_NavigationServer3D_method_map_set_link_connection_radius>` **(** :ref:`RID<class_RID>` map, :ref:`float<class_float>` radius **)**                                                                                                                                                                                           |
+   +-----------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | void                                                | :ref:`map_set_merge_rasterizer_cell_scale<class_NavigationServer3D_method_map_set_merge_rasterizer_cell_scale>` **(** :ref:`RID<class_RID>` map, :ref:`float<class_float>` scale **)**                                                                                                                                                                                  |
    +-----------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                                | :ref:`map_set_up<class_NavigationServer3D_method_map_set_up>` **(** :ref:`RID<class_RID>` map, :ref:`Vector3<class_Vector3>` up **)**                                                                                                                                                                                                                                   |
    +-----------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -989,6 +997,18 @@ Returns information about the current state of the NavigationServer. See :ref:`P
 
 ----
 
+.. _class_NavigationServer3D_method_is_baking_navigation_mesh:
+
+.. rst-class:: classref-method
+
+:ref:`bool<class_bool>` **is_baking_navigation_mesh** **(** :ref:`NavigationMesh<class_NavigationMesh>` navigation_mesh **)** |const|
+
+Returns ``true`` when the provided navigation mesh is being baked on a background thread.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_NavigationServer3D_method_link_create:
 
 .. rst-class:: classref-method
@@ -1239,7 +1259,7 @@ This function immediately forces synchronization of the specified navigation ``m
 
 Due to technical restrictions the current NavigationServer command queue will be flushed. This means all already queued update commands for this physics frame will be executed, even those intended for other maps, regions and agents not part of the specified map. The expensive computation of the navigation meshes and region connections of a map will only be done for the specified map. Other maps will receive the normal synchronization at the end of the physics frame. Should the specified map receive changes after the forced update it will update again as well when the other maps receive their update.
 
-Avoidance processing and dispatch of the ``safe_velocity`` signals is untouched by this function and continues to happen for all maps and agents at the end of the physics frame.
+Avoidance processing and dispatch of the ``safe_velocity`` signals is unaffected by this function and continues to happen for all maps and agents at the end of the physics frame.
 
 \ **Note:** With great power comes great responsibility. This function should only be used by users that really know what they are doing and have a good reason for it. Forcing an immediate update of a navigation map requires locking the NavigationServer and flushing the entire NavigationServer command queue. Not only can this severely impact the performance of a game but it can also introduce bugs if used inappropriately without much foresight.
 
@@ -1362,6 +1382,18 @@ Returns the link connection radius of the map. This distance is the maximum rang
 :ref:`RID[]<class_RID>` **map_get_links** **(** :ref:`RID<class_RID>` map **)** |const|
 
 Returns all navigation link :ref:`RID<class_RID>`\ s that are currently assigned to the requested navigation ``map``.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_NavigationServer3D_method_map_get_merge_rasterizer_cell_scale:
+
+.. rst-class:: classref-method
+
+:ref:`float<class_float>` **map_get_merge_rasterizer_cell_scale** **(** :ref:`RID<class_RID>` map **)** |const|
+
+Returns map's internal merge rasterizer cell scale.
 
 .. rst-class:: classref-item-separator
 
@@ -1510,6 +1542,18 @@ Set the map edge connection margin used to weld the compatible region edges.
 void **map_set_link_connection_radius** **(** :ref:`RID<class_RID>` map, :ref:`float<class_float>` radius **)**
 
 Set the map's link connection radius used to connect links to navigation polygons.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_NavigationServer3D_method_map_set_merge_rasterizer_cell_scale:
+
+.. rst-class:: classref-method
+
+void **map_set_merge_rasterizer_cell_scale** **(** :ref:`RID<class_RID>` map, :ref:`float<class_float>` scale **)**
+
+Set the map's internal merge rasterizer cell scale used to control merging sensitivity.
 
 .. rst-class:: classref-item-separator
 
@@ -1825,9 +1869,11 @@ Queries a path in a given navigation map. Start and target position and other pa
 
 void **region_bake_navigation_mesh** **(** :ref:`NavigationMesh<class_NavigationMesh>` navigation_mesh, :ref:`Node<class_Node>` root_node **)**
 
+**Deprecated:** This method is deprecated due to core threading changes.
+
 Bakes the ``navigation_mesh`` with bake source geometry collected starting from the ``root_node``.
 
-\ *Deprecated.* This function is deprecated due to core threading changes. To upgrade existing code, first create a :ref:`NavigationMeshSourceGeometryData3D<class_NavigationMeshSourceGeometryData3D>` resource. Use this resource with :ref:`parse_source_geometry_data<class_NavigationServer3D_method_parse_source_geometry_data>` to parse the SceneTree for nodes that should contribute to the navigation mesh baking. The SceneTree parsing needs to happen on the main thread. After the parsing is finished use the resource with :ref:`bake_from_source_geometry_data<class_NavigationServer3D_method_bake_from_source_geometry_data>` to bake a navigation mesh.
+\ *Deprecated.* To upgrade existing code, first create a :ref:`NavigationMeshSourceGeometryData3D<class_NavigationMeshSourceGeometryData3D>` resource. Use this resource with :ref:`parse_source_geometry_data<class_NavigationServer3D_method_parse_source_geometry_data>` to parse the SceneTree for nodes that should contribute to the navigation mesh baking. The SceneTree parsing needs to happen on the main thread. After the parsing is finished use the resource with :ref:`bake_from_source_geometry_data<class_NavigationServer3D_method_bake_from_source_geometry_data>` to bake a navigation mesh.
 
 .. rst-class:: classref-item-separator
 
