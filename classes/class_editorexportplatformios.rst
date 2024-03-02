@@ -32,6 +32,8 @@ Properties
    :widths: auto
 
    +-------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`String<class_String>`         | :ref:`application/additional_plist_content<class_EditorExportPlatformIOS_property_application/additional_plist_content>`                         |
+   +-------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`String<class_String>`         | :ref:`application/app_store_team_id<class_EditorExportPlatformIOS_property_application/app_store_team_id>`                                       |
    +-------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`String<class_String>`         | :ref:`application/bundle_identifier<class_EditorExportPlatformIOS_property_application/bundle_identifier>`                                       |
@@ -135,6 +137,23 @@ Properties
 
 Property Descriptions
 ---------------------
+
+.. _class_EditorExportPlatformIOS_property_application/additional_plist_content:
+
+.. rst-class:: classref-property
+
+:ref:`String<class_String>` **application/additional_plist_content**
+
+Additional data added to the root ``<dict>`` section of the `Info.plist <https://developer.apple.com/documentation/bundleresources/information_property_list>`__ file. The value should be an XML section with pairs of key-value elements, e.g.:
+
+::
+
+    <key>key_name</key>
+    <string>value</string>
+
+.. rst-class:: classref-item-separator
+
+----
 
 .. _class_EditorExportPlatformIOS_property_application/app_store_team_id:
 
@@ -711,3 +730,4 @@ If ``true``, the app "Documents" folder can be accessed via iTunes file sharing.
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
 .. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
