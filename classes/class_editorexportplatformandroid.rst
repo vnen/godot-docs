@@ -54,7 +54,13 @@ Properties
    +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`String<class_String>`                       | :ref:`custom_template/release<class_EditorExportPlatformAndroid_property_custom_template/release>`                                               |
    +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`String<class_String>`                       | :ref:`gradle_build/android_source_template<class_EditorExportPlatformAndroid_property_gradle_build/android_source_template>`                     |
+   +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                           | :ref:`gradle_build/compress_native_libraries<class_EditorExportPlatformAndroid_property_gradle_build/compress_native_libraries>`                 |
+   +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                             | :ref:`gradle_build/export_format<class_EditorExportPlatformAndroid_property_gradle_build/export_format>`                                         |
+   +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`String<class_String>`                       | :ref:`gradle_build/gradle_build_directory<class_EditorExportPlatformAndroid_property_gradle_build/gradle_build_directory>`                       |
    +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`String<class_String>`                       | :ref:`gradle_build/min_sdk<class_EditorExportPlatformAndroid_property_gradle_build/min_sdk>`                                                     |
    +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -264,6 +270,8 @@ Properties
    +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                           | :ref:`permissions/persistent_activity<class_EditorExportPlatformAndroid_property_permissions/persistent_activity>`                               |
    +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                           | :ref:`permissions/post_notifications<class_EditorExportPlatformAndroid_property_permissions/post_notifications>`                                 |
+   +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                           | :ref:`permissions/process_outgoing_calls<class_EditorExportPlatformAndroid_property_permissions/process_outgoing_calls>`                         |
    +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                           | :ref:`permissions/read_calendar<class_EditorExportPlatformAndroid_property_permissions/read_calendar>`                                           |
@@ -440,9 +448,9 @@ Array of random bytes that the licensing Policy uses to create an `Obfuscator <h
 
 :ref:`bool<class_bool>` **apk_expansion/enable**
 
-If ``true``, project resources are stored in the separate APK expansion file, instead APK.
+If ``true``, project resources are stored in the separate APK expansion file, instead of the APK.
 
-\ **Note:** APK expansion should be enabled to use PCK encryption.
+\ **Note:** APK expansion should be enabled to use PCK encryption. See `APK Expansion Files <https://developer.android.com/google/play/expansion-files>`__
 
 .. rst-class:: classref-item-separator
 
@@ -454,7 +462,7 @@ If ``true``, project resources are stored in the separate APK expansion file, in
 
 :ref:`String<class_String>` **apk_expansion/public_key**
 
-Base64 encoded RSA public key for your publisher account, available from the profile page on the "Play Console".
+Base64 encoded RSA public key for your publisher account, available from the profile page on the "Google Play Console".
 
 .. rst-class:: classref-item-separator
 
@@ -514,7 +522,7 @@ If ``true``, ``x86_64`` binaries are included into exported project.
 
 :ref:`String<class_String>` **command_line/extra_args**
 
-A list of additional command line arguments, exported project will receive when started.
+A list of additional command line arguments, separated by space, which the exported project will receive when started.
 
 .. rst-class:: classref-item-separator
 
@@ -526,7 +534,9 @@ A list of additional command line arguments, exported project will receive when 
 
 :ref:`String<class_String>` **custom_template/debug**
 
-Path to the custom export template. If left empty, default template is used.
+Path to an APK file to use as a custom export template for debug exports. If left empty, default template is used.
+
+\ **Note:** This is only used if :ref:`gradle_build/use_gradle_build<class_EditorExportPlatformAndroid_property_gradle_build/use_gradle_build>` is disabled.
 
 .. rst-class:: classref-item-separator
 
@@ -538,7 +548,35 @@ Path to the custom export template. If left empty, default template is used.
 
 :ref:`String<class_String>` **custom_template/release**
 
-Path to the custom export template. If left empty, default template is used.
+Path to an APK file to use as a custom export template for release exports. If left empty, default template is used.
+
+\ **Note:** This is only used if :ref:`gradle_build/use_gradle_build<class_EditorExportPlatformAndroid_property_gradle_build/use_gradle_build>` is disabled.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_EditorExportPlatformAndroid_property_gradle_build/android_source_template:
+
+.. rst-class:: classref-property
+
+:ref:`String<class_String>` **gradle_build/android_source_template**
+
+Path to a ZIP file holding the source for the export template used in a Gradle build. If left empty, the default template is used.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_EditorExportPlatformAndroid_property_gradle_build/compress_native_libraries:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **gradle_build/compress_native_libraries**
+
+If ``true``, native libraries are compressed when performing a Gradle build.
+
+\ **Note:** Although your binary may be smaller, your application may load slower because the native libraries are not loaded directly from the binary at runtime.
 
 .. rst-class:: classref-item-separator
 
@@ -550,7 +588,19 @@ Path to the custom export template. If left empty, default template is used.
 
 :ref:`int<class_int>` **gradle_build/export_format**
 
-Export format for Gradle build.
+Application export format (\*.apk or \*.aab).
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_EditorExportPlatformAndroid_property_gradle_build/gradle_build_directory:
+
+.. rst-class:: classref-property
+
+:ref:`String<class_String>` **gradle_build/gradle_build_directory**
+
+Path to the Gradle build directory. If left empty, then ``res://android`` will be used.
 
 .. rst-class:: classref-item-separator
 
@@ -562,7 +612,7 @@ Export format for Gradle build.
 
 :ref:`String<class_String>` **gradle_build/min_sdk**
 
-Minimal Android SDK version for Gradle build.
+Minimum Android API level required for the application to run (used during Gradle build). See `android:minSdkVersion <https://developer.android.com/guide/topics/manifest/uses-sdk-element#uses>`__.
 
 .. rst-class:: classref-item-separator
 
@@ -574,7 +624,7 @@ Minimal Android SDK version for Gradle build.
 
 :ref:`String<class_String>` **gradle_build/target_sdk**
 
-Target Android SDK version for Gradle build.
+The Android API level on which the application is designed to run (used during Gradle build). See `android:targetSdkVersion <https://developer.android.com/guide/topics/manifest/uses-sdk-element#uses>`__.
 
 .. rst-class:: classref-item-separator
 
@@ -700,7 +750,7 @@ Can be overridden with the environment variable ``GODOT_ANDROID_KEYSTORE_RELEASE
 
 :ref:`String<class_String>` **launcher_icons/adaptive_background_432x432**
 
-Background layer of the application adaptive icon file.
+Background layer of the application adaptive icon file. See `Design adaptive icons <https://developer.android.com/develop/ui/views/launch/icon_design_adaptive#design-adaptive-icons>`__.
 
 .. rst-class:: classref-item-separator
 
@@ -712,7 +762,7 @@ Background layer of the application adaptive icon file.
 
 :ref:`String<class_String>` **launcher_icons/adaptive_foreground_432x432**
 
-Foreground layer of the application adaptive icon file.
+Foreground layer of the application adaptive icon file. See `Design adaptive icons <https://developer.android.com/develop/ui/views/launch/icon_design_adaptive#design-adaptive-icons>`__.
 
 .. rst-class:: classref-item-separator
 
@@ -736,7 +786,7 @@ Application icon file. If left empty, it will fallback to :ref:`ProjectSettings.
 
 :ref:`int<class_int>` **package/app_category**
 
-Application category for the Play Store.
+Application category for the Google Play Store. Only define this if your application fits one of the categories well. See `android:appCategory <https://developer.android.com/guide/topics/manifest/application-element#appCategory>`__.
 
 .. rst-class:: classref-item-separator
 
@@ -748,7 +798,7 @@ Application category for the Play Store.
 
 :ref:`bool<class_bool>` **package/exclude_from_recents**
 
-If ``true``, task initiated by main activity will be excluded from the list of recently used applications.
+If ``true``, task initiated by main activity will be excluded from the list of recently used applications. See `android:excludeFromRecents <https://developer.android.com/guide/topics/manifest/activity-element#exclude>`__.
 
 .. rst-class:: classref-item-separator
 
@@ -772,7 +822,7 @@ Name of the application.
 
 :ref:`bool<class_bool>` **package/retain_data_on_uninstall**
 
-If ``true``, when the user uninstalls an app, a prompt to keep the app's data will be shown.
+If ``true``, when the user uninstalls an app, a prompt to keep the app's data will be shown. See `android:hasFragileUserData <https://developer.android.com/guide/topics/manifest/application-element#fragileuserdata>`__.
 
 .. rst-class:: classref-item-separator
 
@@ -834,7 +884,13 @@ If ``true``, package signing is enabled.
 
 :ref:`String<class_String>` **package/unique_name**
 
-Unique application identifier in a reverse-DNS format, can only contain alphanumeric characters (``A-Z``, ``a-z``, and ``0-9``), hyphens (``-``), and periods (``.``).
+Unique application identifier in a reverse-DNS format. The reverse DNS format should preferably match a domain name you control, but this is not strictly required. For instance, if you own ``example.com``, your package unique name should preferably be of the form ``com.example.mygame``. This identifier can only contain lowercase alphanumeric characters (``a-z``, and ``0-9``), underscores (``_``), and periods (``.``). Each component of the reverse DNS format must start with a letter: for instance, ``com.example.8game`` is not valid.
+
+If ``$genname`` is present in the value, it will be replaced by the project name converted to lowercase. If there are invalid characters in the project name, they will be stripped. If all characters in the project name are stripped, ``$genname`` is replaced by ``noname``.
+
+\ **Note:** Changing the package name will cause the package to be considered as a new package, with its own installation and data paths. The new package won't be usable to update existing installations.
+
+\ **Note:** When publishing to Google Play, the package name must be *globally* unique. This means no other apps published on Google Play must be using the same package name as yours. Otherwise, you'll be prevented from publishing your app on Google Play.
 
 .. rst-class:: classref-item-separator
 
@@ -1388,6 +1444,8 @@ Allows enabling/disabling location update notifications from the radio. See `CON
 
 Array of custom permission strings.
 
+**Note:** The returned array is *copied* and any changes to it will not update the original property value. See :ref:`PackedStringArray<class_PackedStringArray>` for more details.
+
 .. rst-class:: classref-item-separator
 
 ----
@@ -1398,7 +1456,7 @@ Array of custom permission strings.
 
 :ref:`bool<class_bool>` **permissions/delete_cache_files**
 
-Deprecated.
+**Deprecated:** This property may be changed or removed in future versions.
 
 .. rst-class:: classref-item-separator
 
@@ -1542,7 +1600,7 @@ Allows an application to find out the space used by any package. See `GET_PACKAG
 
 :ref:`bool<class_bool>` **permissions/get_tasks**
 
-Deprecated in API level 21.
+**Deprecated:** Deprecated in API level 21.
 
 .. rst-class:: classref-item-separator
 
@@ -1818,9 +1876,21 @@ Allows applications to perform I/O operations over NFC. See `NFC <https://develo
 
 :ref:`bool<class_bool>` **permissions/persistent_activity**
 
-Allow an application to make its activities persistent.
+**Deprecated:** Deprecated in API level 15.
 
-Deprecated in API level 15.
+Allows an application to make its activities persistent.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_EditorExportPlatformAndroid_property_permissions/post_notifications:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **permissions/post_notifications**
+
+Allows an application to post notifications. Added in API level 33. See `Notification runtime permission <https://developer.android.com/develop/ui/views/notifications/notification-permission>`__.
 
 .. rst-class:: classref-item-separator
 
@@ -1832,9 +1902,9 @@ Deprecated in API level 15.
 
 :ref:`bool<class_bool>` **permissions/process_outgoing_calls**
 
-Allows an application to see the number being dialed during an outgoing call with the option to redirect the call to a different number or abort the call altogether. See `PROCESS_OUTGOING_CALLS <https://developer.android.com/reference/android/Manifest.permission#PROCESS_OUTGOING_CALLS>`__.
+**Deprecated:** Deprecated in API level 29.
 
-Deprecated in API level 29.
+Allows an application to see the number being dialed during an outgoing call with the option to redirect the call to a different number or abort the call altogether. See `PROCESS_OUTGOING_CALLS <https://developer.android.com/reference/android/Manifest.permission#PROCESS_OUTGOING_CALLS>`__.
 
 .. rst-class:: classref-item-separator
 
@@ -1882,9 +1952,9 @@ Allows an application to read the user's contacts data. See `READ_CONTACTS <http
 
 :ref:`bool<class_bool>` **permissions/read_external_storage**
 
-Allows an application to read from external storage. See `READ_EXTERNAL_STORAGE <https://developer.android.com/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE>`__.
+**Deprecated:** Deprecated in API level 33.
 
-Deprecated in API level 33.
+Allows an application to read from external storage. See `READ_EXTERNAL_STORAGE <https://developer.android.com/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE>`__.
 
 .. rst-class:: classref-item-separator
 
@@ -1920,7 +1990,7 @@ Allows an application to read (but not write) the user's browsing history and bo
 
 :ref:`bool<class_bool>` **permissions/read_input_state**
 
-Deprecated in API level 16.
+**Deprecated:** Deprecated in API level 16.
 
 .. rst-class:: classref-item-separator
 
@@ -2112,7 +2182,7 @@ Allows an application to change the Z-order of tasks. See `REORDER_TASKS <https:
 
 :ref:`bool<class_bool>` **permissions/restart_packages**
 
-Deprecated in API level 15.
+**Deprecated:** Deprecated in API level 15.
 
 .. rst-class:: classref-item-separator
 
@@ -2232,7 +2302,7 @@ Allows low-level access to setting the pointer speed.
 
 :ref:`bool<class_bool>` **permissions/set_preferred_applications**
 
-Deprecated in API level 15.
+**Deprecated:** Deprecated in API level 15.
 
 .. rst-class:: classref-item-separator
 
@@ -2340,7 +2410,7 @@ Allows an application to allow access the subscribed feeds ContentProvider.
 
 :ref:`bool<class_bool>` **permissions/subscribed_feeds_write**
 
-Deprecated.
+**Deprecated:** This property may be changed or removed in future versions.
 
 .. rst-class:: classref-item-separator
 
@@ -2376,7 +2446,7 @@ Allows using the device's IR transmitter, if available. See `TRANSMIT_IR <https:
 
 :ref:`bool<class_bool>` **permissions/uninstall_shortcut**
 
-Deprecated.
+**Deprecated:** This property may be changed or removed in future versions.
 
 .. rst-class:: classref-item-separator
 
@@ -2712,9 +2782,7 @@ Application version visible to the user. Falls back to :ref:`ProjectSettings.app
 
 :ref:`int<class_int>` **xr_features/xr_mode**
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+The extended reality (XR) mode for this application.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
@@ -2723,3 +2791,4 @@ Application version visible to the user. Falls back to :ref:`ProjectSettings.app
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
 .. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
