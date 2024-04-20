@@ -63,19 +63,19 @@ Methods
 .. table::
    :widths: auto
 
-   +-----------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Button<class_Button>` | :ref:`add_button<class_AcceptDialog_method_add_button>` **(** :ref:`String<class_String>` text, :ref:`bool<class_bool>` right=false, :ref:`String<class_String>` action="" **)** |
-   +-----------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Button<class_Button>` | :ref:`add_cancel_button<class_AcceptDialog_method_add_cancel_button>` **(** :ref:`String<class_String>` name **)**                                                               |
-   +-----------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Label<class_Label>`   | :ref:`get_label<class_AcceptDialog_method_get_label>` **(** **)**                                                                                                                |
-   +-----------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Button<class_Button>` | :ref:`get_ok_button<class_AcceptDialog_method_get_ok_button>` **(** **)**                                                                                                        |
-   +-----------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                        | :ref:`register_text_enter<class_AcceptDialog_method_register_text_enter>` **(** :ref:`Control<class_Control>` line_edit **)**                                                    |
-   +-----------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                        | :ref:`remove_button<class_AcceptDialog_method_remove_button>` **(** :ref:`Control<class_Control>` button **)**                                                                   |
-   +-----------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +-----------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Button<class_Button>` | :ref:`add_button<class_AcceptDialog_method_add_button>`\ (\ text\: :ref:`String<class_String>`, right\: :ref:`bool<class_bool>` = false, action\: :ref:`String<class_String>` = ""\ ) |
+   +-----------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Button<class_Button>` | :ref:`add_cancel_button<class_AcceptDialog_method_add_cancel_button>`\ (\ name\: :ref:`String<class_String>`\ )                                                                       |
+   +-----------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Label<class_Label>`   | :ref:`get_label<class_AcceptDialog_method_get_label>`\ (\ )                                                                                                                           |
+   +-----------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Button<class_Button>` | :ref:`get_ok_button<class_AcceptDialog_method_get_ok_button>`\ (\ )                                                                                                                   |
+   +-----------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                      | :ref:`register_text_enter<class_AcceptDialog_method_register_text_enter>`\ (\ line_edit\: :ref:`LineEdit<class_LineEdit>`\ )                                                          |
+   +-----------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                      | :ref:`remove_button<class_AcceptDialog_method_remove_button>`\ (\ button\: :ref:`Button<class_Button>`\ )                                                                             |
+   +-----------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-reftable-group
 
@@ -85,6 +85,10 @@ Theme Properties
 .. table::
    :widths: auto
 
+   +---------------------------------+---------------------------------------------------------------------------------+--------+
+   | :ref:`int<class_int>`           | :ref:`buttons_min_height<class_AcceptDialog_theme_constant_buttons_min_height>` | ``0``  |
+   +---------------------------------+---------------------------------------------------------------------------------+--------+
+   | :ref:`int<class_int>`           | :ref:`buttons_min_width<class_AcceptDialog_theme_constant_buttons_min_width>`   | ``0``  |
    +---------------------------------+---------------------------------------------------------------------------------+--------+
    | :ref:`int<class_int>`           | :ref:`buttons_separation<class_AcceptDialog_theme_constant_buttons_separation>` | ``10`` |
    +---------------------------------+---------------------------------------------------------------------------------+--------+
@@ -104,7 +108,7 @@ Signals
 
 .. rst-class:: classref-signal
 
-**canceled** **(** **)**
+**canceled**\ (\ )
 
 Emitted when the dialog is closed or the button created with :ref:`add_cancel_button<class_AcceptDialog_method_add_cancel_button>` is pressed.
 
@@ -116,7 +120,7 @@ Emitted when the dialog is closed or the button created with :ref:`add_cancel_bu
 
 .. rst-class:: classref-signal
 
-**confirmed** **(** **)**
+**confirmed**\ (\ )
 
 Emitted when the dialog is accepted, i.e. the OK button is pressed.
 
@@ -128,7 +132,7 @@ Emitted when the dialog is accepted, i.e. the OK button is pressed.
 
 .. rst-class:: classref-signal
 
-**custom_action** **(** :ref:`StringName<class_StringName>` action **)**
+**custom_action**\ (\ action\: :ref:`StringName<class_StringName>`\ )
 
 Emitted when a custom button is pressed. See :ref:`add_button<class_AcceptDialog_method_add_button>`.
 
@@ -149,8 +153,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_autowrap** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **has_autowrap** **(** **)**
+- |void| **set_autowrap**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **has_autowrap**\ (\ )
 
 Sets autowrapping for the text in the dialog.
 
@@ -166,8 +170,8 @@ Sets autowrapping for the text in the dialog.
 
 .. rst-class:: classref-property-setget
 
-- void **set_close_on_escape** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **get_close_on_escape** **(** **)**
+- |void| **set_close_on_escape**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **get_close_on_escape**\ (\ )
 
 If ``true``, the dialog will be hidden when the escape key (:ref:`@GlobalScope.KEY_ESCAPE<class_@GlobalScope_constant_KEY_ESCAPE>`) is pressed.
 
@@ -183,8 +187,8 @@ If ``true``, the dialog will be hidden when the escape key (:ref:`@GlobalScope.K
 
 .. rst-class:: classref-property-setget
 
-- void **set_hide_on_ok** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **get_hide_on_ok** **(** **)**
+- |void| **set_hide_on_ok**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **get_hide_on_ok**\ (\ )
 
 If ``true``, the dialog is hidden when the OK button is pressed. You can set it to ``false`` if you want to do e.g. input validation when receiving the :ref:`confirmed<class_AcceptDialog_signal_confirmed>` signal, and handle hiding the dialog in your own logic.
 
@@ -202,8 +206,8 @@ If ``true``, the dialog is hidden when the OK button is pressed. You can set it 
 
 .. rst-class:: classref-property-setget
 
-- void **set_text** **(** :ref:`String<class_String>` value **)**
-- :ref:`String<class_String>` **get_text** **(** **)**
+- |void| **set_text**\ (\ value\: :ref:`String<class_String>`\ )
+- :ref:`String<class_String>` **get_text**\ (\ )
 
 The text displayed by the dialog.
 
@@ -219,8 +223,8 @@ The text displayed by the dialog.
 
 .. rst-class:: classref-property-setget
 
-- void **set_ok_button_text** **(** :ref:`String<class_String>` value **)**
-- :ref:`String<class_String>` **get_ok_button_text** **(** **)**
+- |void| **set_ok_button_text**\ (\ value\: :ref:`String<class_String>`\ )
+- :ref:`String<class_String>` **get_ok_button_text**\ (\ )
 
 The text displayed by the OK button (see :ref:`get_ok_button<class_AcceptDialog_method_get_ok_button>`).
 
@@ -237,7 +241,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`Button<class_Button>` **add_button** **(** :ref:`String<class_String>` text, :ref:`bool<class_bool>` right=false, :ref:`String<class_String>` action="" **)**
+:ref:`Button<class_Button>` **add_button**\ (\ text\: :ref:`String<class_String>`, right\: :ref:`bool<class_bool>` = false, action\: :ref:`String<class_String>` = ""\ )
 
 Adds a button with label ``text`` and a custom ``action`` to the dialog and returns the created button. ``action`` will be passed to the :ref:`custom_action<class_AcceptDialog_signal_custom_action>` signal when pressed.
 
@@ -253,7 +257,7 @@ You can use :ref:`remove_button<class_AcceptDialog_method_remove_button>` method
 
 .. rst-class:: classref-method
 
-:ref:`Button<class_Button>` **add_cancel_button** **(** :ref:`String<class_String>` name **)**
+:ref:`Button<class_Button>` **add_cancel_button**\ (\ name\: :ref:`String<class_String>`\ )
 
 Adds a button with label ``name`` and a cancel action to the dialog and returns the created button.
 
@@ -267,7 +271,7 @@ You can use :ref:`remove_button<class_AcceptDialog_method_remove_button>` method
 
 .. rst-class:: classref-method
 
-:ref:`Label<class_Label>` **get_label** **(** **)**
+:ref:`Label<class_Label>` **get_label**\ (\ )
 
 Returns the label used for built-in text.
 
@@ -281,7 +285,7 @@ Returns the label used for built-in text.
 
 .. rst-class:: classref-method
 
-:ref:`Button<class_Button>` **get_ok_button** **(** **)**
+:ref:`Button<class_Button>` **get_ok_button**\ (\ )
 
 Returns the OK :ref:`Button<class_Button>` instance.
 
@@ -295,7 +299,7 @@ Returns the OK :ref:`Button<class_Button>` instance.
 
 .. rst-class:: classref-method
 
-void **register_text_enter** **(** :ref:`Control<class_Control>` line_edit **)**
+|void| **register_text_enter**\ (\ line_edit\: :ref:`LineEdit<class_LineEdit>`\ )
 
 Registers a :ref:`LineEdit<class_LineEdit>` in the dialog. When the enter key is pressed, the dialog will be accepted.
 
@@ -307,7 +311,7 @@ Registers a :ref:`LineEdit<class_LineEdit>` in the dialog. When the enter key is
 
 .. rst-class:: classref-method
 
-void **remove_button** **(** :ref:`Control<class_Control>` button **)**
+|void| **remove_button**\ (\ button\: :ref:`Button<class_Button>`\ )
 
 Removes the ``button`` from the dialog. Does NOT free the ``button``. The ``button`` must be a :ref:`Button<class_Button>` added with :ref:`add_button<class_AcceptDialog_method_add_button>` or :ref:`add_cancel_button<class_AcceptDialog_method_add_cancel_button>` method. After removal, pressing the ``button`` will no longer emit this dialog's :ref:`custom_action<class_AcceptDialog_signal_custom_action>` or :ref:`canceled<class_AcceptDialog_signal_canceled>` signals.
 
@@ -319,6 +323,30 @@ Removes the ``button`` from the dialog. Does NOT free the ``button``. The ``butt
 
 Theme Property Descriptions
 ---------------------------
+
+.. _class_AcceptDialog_theme_constant_buttons_min_height:
+
+.. rst-class:: classref-themeproperty
+
+:ref:`int<class_int>` **buttons_min_height** = ``0``
+
+The minimum height of each button in the bottom row (such as OK/Cancel) in pixels. This can be increased to make buttons with short texts easier to click/tap.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_AcceptDialog_theme_constant_buttons_min_width:
+
+.. rst-class:: classref-themeproperty
+
+:ref:`int<class_int>` **buttons_min_width** = ``0``
+
+The minimum width of each button in the bottom row (such as OK/Cancel) in pixels. This can be increased to make buttons with short texts easier to click/tap.
+
+.. rst-class:: classref-item-separator
+
+----
 
 .. _class_AcceptDialog_theme_constant_buttons_separation:
 
@@ -347,3 +375,4 @@ The panel that fills the background of the window.
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
 .. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
