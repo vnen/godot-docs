@@ -58,8 +58,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_depth** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_depth** **(** **)**
+- |void| **set_depth**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_depth**\ (\ )
 
 Length that the resulting collision extends in either direction perpendicular to its 2D polygon.
 
@@ -75,8 +75,8 @@ Length that the resulting collision extends in either direction perpendicular to
 
 .. rst-class:: classref-property-setget
 
-- void **set_disabled** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_disabled** **(** **)**
+- |void| **set_disabled**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_disabled**\ (\ )
 
 If ``true``, no collision will be produced.
 
@@ -92,8 +92,8 @@ If ``true``, no collision will be produced.
 
 .. rst-class:: classref-property-setget
 
-- void **set_margin** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_margin** **(** **)**
+- |void| **set_margin**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_margin**\ (\ )
 
 The collision margin for the generated :ref:`Shape3D<class_Shape3D>`. See :ref:`Shape3D.margin<class_Shape3D_property_margin>` for more details.
 
@@ -109,12 +109,12 @@ The collision margin for the generated :ref:`Shape3D<class_Shape3D>`. See :ref:`
 
 .. rst-class:: classref-property-setget
 
-- void **set_polygon** **(** :ref:`PackedVector2Array<class_PackedVector2Array>` value **)**
-- :ref:`PackedVector2Array<class_PackedVector2Array>` **get_polygon** **(** **)**
+- |void| **set_polygon**\ (\ value\: :ref:`PackedVector2Array<class_PackedVector2Array>`\ )
+- :ref:`PackedVector2Array<class_PackedVector2Array>` **get_polygon**\ (\ )
 
 Array of vertices which define the 2D polygon in the local XY plane.
 
-\ **Note:** The returned value is a copy of the original. Methods which mutate the size or properties of the return value will not impact the original polygon. To change properties of the polygon, assign it to a temporary variable and make changes before reassigning the class property.
+**Note:** The returned array is *copied* and any changes to it will not update the original property value. See :ref:`PackedVector2Array<class_PackedVector2Array>` for more details.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
@@ -123,3 +123,4 @@ Array of vertices which define the 2D polygon in the local XY plane.
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
 .. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
