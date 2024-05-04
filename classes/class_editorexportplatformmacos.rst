@@ -32,6 +32,8 @@ Properties
    :widths: auto
 
    +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`String<class_String>`                       | :ref:`application/additional_plist_content<class_EditorExportPlatformMacOS_property_application/additional_plist_content>`                                     |
+   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`String<class_String>`                       | :ref:`application/app_category<class_EditorExportPlatformMacOS_property_application/app_category>`                                                             |
    +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`String<class_String>`                       | :ref:`application/bundle_identifier<class_EditorExportPlatformMacOS_property_application/bundle_identifier>`                                                   |
@@ -221,6 +223,23 @@ Properties
 
 Property Descriptions
 ---------------------
+
+.. _class_EditorExportPlatformMacOS_property_application/additional_plist_content:
+
+.. rst-class:: classref-property
+
+:ref:`String<class_String>` **application/additional_plist_content**
+
+Additional data added to the root ``<dict>`` section of the `Info.plist <https://developer.apple.com/documentation/bundleresources/information_property_list>`__ file. The value should be an XML section with pairs of key-value elements, e.g.:
+
+.. code:: text
+
+    <key>key_name</key>
+    <string>value</string>
+
+.. rst-class:: classref-item-separator
+
+----
 
 .. _class_EditorExportPlatformMacOS_property_application/app_category:
 
@@ -429,6 +448,8 @@ Tool to use for code signing.
 :ref:`PackedStringArray<class_PackedStringArray>` **codesign/custom_options**
 
 Array of the additional command line arguments passed to the code signing tool.
+
+**Note:** The returned array is *copied* and any changes to it will not update the original property value. See :ref:`PackedStringArray<class_PackedStringArray>` for more details.
 
 .. rst-class:: classref-item-separator
 
@@ -1347,3 +1368,4 @@ Xcode version used to build application executable.
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
 .. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
