@@ -30,7 +30,7 @@ Tutorials
 
 - :doc:`Using Containers <../tutorials/ui/gui_containers>`
 
-- `2D Role Playing Game Demo <https://godotengine.org/asset-library/asset/520>`__
+- `2D Role Playing Game (RPG) Demo <https://godotengine.org/asset-library/asset/2729>`__
 
 .. rst-class:: classref-reftable-group
 
@@ -80,3 +80,4 @@ The style of **PanelContainer**'s background.
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
 .. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
