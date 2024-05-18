@@ -32,17 +32,17 @@ Tutorials
 
 - :doc:`Viewport and canvas transforms <../tutorials/2d/2d_transforms>`
 
-- `GUI in 3D Demo <https://godotengine.org/asset-library/asset/127>`__
+- `GUI in 3D Viewport Demo <https://godotengine.org/asset-library/asset/2807>`__
 
-- `3D in 2D Demo <https://godotengine.org/asset-library/asset/128>`__
+- `3D in 2D Viewport Demo <https://godotengine.org/asset-library/asset/2804>`__
 
-- `2D in 3D Demo <https://godotengine.org/asset-library/asset/129>`__
+- `2D in 3D Viewport Demo <https://godotengine.org/asset-library/asset/2803>`__
 
-- `Screen Capture Demo <https://godotengine.org/asset-library/asset/130>`__
+- `Screen Capture Demo <https://godotengine.org/asset-library/asset/2808>`__
 
-- `Dynamic Split Screen Demo <https://godotengine.org/asset-library/asset/541>`__
+- `Dynamic Split Screen Demo <https://godotengine.org/asset-library/asset/2806>`__
 
-- `3D Viewport Scaling Demo <https://godotengine.org/asset-library/asset/586>`__
+- `3D Resolution Scaling Demo <https://godotengine.org/asset-library/asset/2805>`__
 
 .. rst-class:: classref-reftable-group
 
@@ -170,8 +170,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_clear_mode** **(** :ref:`ClearMode<enum_SubViewport_ClearMode>` value **)**
-- :ref:`ClearMode<enum_SubViewport_ClearMode>` **get_clear_mode** **(** **)**
+- |void| **set_clear_mode**\ (\ value\: :ref:`ClearMode<enum_SubViewport_ClearMode>`\ )
+- :ref:`ClearMode<enum_SubViewport_ClearMode>` **get_clear_mode**\ (\ )
 
 The clear mode when the sub-viewport is used as a render target.
 
@@ -189,8 +189,8 @@ The clear mode when the sub-viewport is used as a render target.
 
 .. rst-class:: classref-property-setget
 
-- void **set_update_mode** **(** :ref:`UpdateMode<enum_SubViewport_UpdateMode>` value **)**
-- :ref:`UpdateMode<enum_SubViewport_UpdateMode>` **get_update_mode** **(** **)**
+- |void| **set_update_mode**\ (\ value\: :ref:`UpdateMode<enum_SubViewport_UpdateMode>`\ )
+- :ref:`UpdateMode<enum_SubViewport_UpdateMode>` **get_update_mode**\ (\ )
 
 The update mode when the sub-viewport is used as a render target.
 
@@ -206,8 +206,8 @@ The update mode when the sub-viewport is used as a render target.
 
 .. rst-class:: classref-property-setget
 
-- void **set_size** **(** :ref:`Vector2i<class_Vector2i>` value **)**
-- :ref:`Vector2i<class_Vector2i>` **get_size** **(** **)**
+- |void| **set_size**\ (\ value\: :ref:`Vector2i<class_Vector2i>`\ )
+- :ref:`Vector2i<class_Vector2i>` **get_size**\ (\ )
 
 The width and height of the sub-viewport. Must be set to a value greater than or equal to 2 pixels on both dimensions. Otherwise, nothing will be displayed.
 
@@ -225,8 +225,8 @@ The width and height of the sub-viewport. Must be set to a value greater than or
 
 .. rst-class:: classref-property-setget
 
-- void **set_size_2d_override** **(** :ref:`Vector2i<class_Vector2i>` value **)**
-- :ref:`Vector2i<class_Vector2i>` **get_size_2d_override** **(** **)**
+- |void| **set_size_2d_override**\ (\ value\: :ref:`Vector2i<class_Vector2i>`\ )
+- :ref:`Vector2i<class_Vector2i>` **get_size_2d_override**\ (\ )
 
 The 2D size override of the sub-viewport. If either the width or height is ``0``, the override is disabled.
 
@@ -242,8 +242,8 @@ The 2D size override of the sub-viewport. If either the width or height is ``0``
 
 .. rst-class:: classref-property-setget
 
-- void **set_size_2d_override_stretch** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_size_2d_override_stretch_enabled** **(** **)**
+- |void| **set_size_2d_override_stretch**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_size_2d_override_stretch_enabled**\ (\ )
 
 If ``true``, the 2D size override affects stretch as well.
 
@@ -254,3 +254,4 @@ If ``true``, the 2D size override affects stretch as well.
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
 .. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

@@ -23,7 +23,7 @@ Comma-separated values are a plain text table storage format. The format's simpl
 
 \ **Example CSV file:**\ 
 
-::
+.. code:: text
 
     keys,en,es,ja
     GREET,"Hello, friend!","Hola, amigo!",こんにちは
@@ -88,3 +88,4 @@ The delimiter to use in the CSV file. The default value matches the common CSV c
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
 .. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
