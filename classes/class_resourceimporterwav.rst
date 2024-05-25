@@ -79,6 +79,8 @@ The compression mode to use on import.
 
 \ **RAM (Ima-ADPCM):** Performs fast lossy compression on import. Low CPU cost, but quality is noticeably decreased compared to Ogg Vorbis or even MP3.
 
+\ **QOA (`Quite OK Audio <https://qoaformat.org/>`__):** Performs lossy compression on import. CPU cost is slightly higher than IMA-ADPCM, but quality is much higher.
+
 .. rst-class:: classref-item-separator
 
 ----
@@ -208,3 +210,4 @@ If ``true``, forces the imported audio to be mono if the source file is stereo. 
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
 .. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
