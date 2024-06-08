@@ -65,9 +65,9 @@ See also :ref:`BaseButton<class_BaseButton>` which contains common properties an
 Tutorials
 ---------
 
-- `2D Dodge The Creeps Demo <https://godotengine.org/asset-library/asset/515>`__
+- `2D Dodge The Creeps Demo <https://godotengine.org/asset-library/asset/2712>`__
 
-- `OS Test Demo <https://godotengine.org/asset-library/asset/677>`__
+- `Operating System Testing Demo <https://godotengine.org/asset-library/asset/2789>`__
 
 .. rst-class:: classref-reftable-group
 
@@ -79,6 +79,8 @@ Properties
 
    +-------------------------------------------------------------------+-------------------------------------------------------------------------------+-----------+
    | :ref:`HorizontalAlignment<enum_@GlobalScope_HorizontalAlignment>` | :ref:`alignment<class_Button_property_alignment>`                             | ``1``     |
+   +-------------------------------------------------------------------+-------------------------------------------------------------------------------+-----------+
+   | :ref:`AutowrapMode<enum_TextServer_AutowrapMode>`                 | :ref:`autowrap_mode<class_Button_property_autowrap_mode>`                     | ``0``     |
    +-------------------------------------------------------------------+-------------------------------------------------------------------------------+-----------+
    | :ref:`bool<class_bool>`                                           | :ref:`clip_text<class_Button_property_clip_text>`                             | ``false`` |
    +-------------------------------------------------------------------+-------------------------------------------------------------------------------+-----------+
@@ -120,7 +122,7 @@ Theme Properties
    +-----------------------------------+------------------------------------------------------------------------------------+-------------------------------------+
    | :ref:`Color<class_Color>`         | :ref:`font_hover_pressed_color<class_Button_theme_color_font_hover_pressed_color>` | ``Color(1, 1, 1, 1)``               |
    +-----------------------------------+------------------------------------------------------------------------------------+-------------------------------------+
-   | :ref:`Color<class_Color>`         | :ref:`font_outline_color<class_Button_theme_color_font_outline_color>`             | ``Color(1, 1, 1, 1)``               |
+   | :ref:`Color<class_Color>`         | :ref:`font_outline_color<class_Button_theme_color_font_outline_color>`             | ``Color(0, 0, 0, 1)``               |
    +-----------------------------------+------------------------------------------------------------------------------------+-------------------------------------+
    | :ref:`Color<class_Color>`         | :ref:`font_pressed_color<class_Button_theme_color_font_pressed_color>`             | ``Color(1, 1, 1, 1)``               |
    +-----------------------------------+------------------------------------------------------------------------------------+-------------------------------------+
@@ -184,14 +186,31 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`HorizontalAlignment<enum_@GlobalScope_HorizontalAlignment>` **alignment** = ``1``
+:ref:`HorizontalAlignment<enum_@GlobalScope_HorizontalAlignment>` **alignment** = ``1`` :ref:`🔗<class_Button_property_alignment>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_text_alignment** **(** :ref:`HorizontalAlignment<enum_@GlobalScope_HorizontalAlignment>` value **)**
-- :ref:`HorizontalAlignment<enum_@GlobalScope_HorizontalAlignment>` **get_text_alignment** **(** **)**
+- |void| **set_text_alignment**\ (\ value\: :ref:`HorizontalAlignment<enum_@GlobalScope_HorizontalAlignment>`\ )
+- :ref:`HorizontalAlignment<enum_@GlobalScope_HorizontalAlignment>` **get_text_alignment**\ (\ )
 
 Text alignment policy for the button's text, use one of the :ref:`HorizontalAlignment<enum_@GlobalScope_HorizontalAlignment>` constants.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_Button_property_autowrap_mode:
+
+.. rst-class:: classref-property
+
+:ref:`AutowrapMode<enum_TextServer_AutowrapMode>` **autowrap_mode** = ``0`` :ref:`🔗<class_Button_property_autowrap_mode>`
+
+.. rst-class:: classref-property-setget
+
+- |void| **set_autowrap_mode**\ (\ value\: :ref:`AutowrapMode<enum_TextServer_AutowrapMode>`\ )
+- :ref:`AutowrapMode<enum_TextServer_AutowrapMode>` **get_autowrap_mode**\ (\ )
+
+If set to something other than :ref:`TextServer.AUTOWRAP_OFF<class_TextServer_constant_AUTOWRAP_OFF>`, the text gets wrapped inside the node's bounding rectangle.
 
 .. rst-class:: classref-item-separator
 
@@ -201,12 +220,12 @@ Text alignment policy for the button's text, use one of the :ref:`HorizontalAlig
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **clip_text** = ``false``
+:ref:`bool<class_bool>` **clip_text** = ``false`` :ref:`🔗<class_Button_property_clip_text>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_clip_text** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **get_clip_text** **(** **)**
+- |void| **set_clip_text**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **get_clip_text**\ (\ )
 
 When this property is enabled, text that is too large to fit the button is clipped, when disabled the Button will always be wide enough to hold the text.
 
@@ -218,12 +237,12 @@ When this property is enabled, text that is too large to fit the button is clipp
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **expand_icon** = ``false``
+:ref:`bool<class_bool>` **expand_icon** = ``false`` :ref:`🔗<class_Button_property_expand_icon>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_expand_icon** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_expand_icon** **(** **)**
+- |void| **set_expand_icon**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_expand_icon**\ (\ )
 
 When enabled, the button's icon will expand/shrink to fit the button's size while keeping its aspect. See also :ref:`icon_max_width<class_Button_theme_constant_icon_max_width>`.
 
@@ -235,12 +254,12 @@ When enabled, the button's icon will expand/shrink to fit the button's size whil
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **flat** = ``false``
+:ref:`bool<class_bool>` **flat** = ``false`` :ref:`🔗<class_Button_property_flat>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_flat** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_flat** **(** **)**
+- |void| **set_flat**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_flat**\ (\ )
 
 Flat buttons don't display decoration.
 
@@ -252,12 +271,12 @@ Flat buttons don't display decoration.
 
 .. rst-class:: classref-property
 
-:ref:`Texture2D<class_Texture2D>` **icon**
+:ref:`Texture2D<class_Texture2D>` **icon** :ref:`🔗<class_Button_property_icon>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_button_icon** **(** :ref:`Texture2D<class_Texture2D>` value **)**
-- :ref:`Texture2D<class_Texture2D>` **get_button_icon** **(** **)**
+- |void| **set_button_icon**\ (\ value\: :ref:`Texture2D<class_Texture2D>`\ )
+- :ref:`Texture2D<class_Texture2D>` **get_button_icon**\ (\ )
 
 Button's icon, if text is present the icon will be placed before the text.
 
@@ -271,12 +290,12 @@ To edit margin and spacing of the icon, use :ref:`h_separation<class_Button_them
 
 .. rst-class:: classref-property
 
-:ref:`HorizontalAlignment<enum_@GlobalScope_HorizontalAlignment>` **icon_alignment** = ``0``
+:ref:`HorizontalAlignment<enum_@GlobalScope_HorizontalAlignment>` **icon_alignment** = ``0`` :ref:`🔗<class_Button_property_icon_alignment>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_icon_alignment** **(** :ref:`HorizontalAlignment<enum_@GlobalScope_HorizontalAlignment>` value **)**
-- :ref:`HorizontalAlignment<enum_@GlobalScope_HorizontalAlignment>` **get_icon_alignment** **(** **)**
+- |void| **set_icon_alignment**\ (\ value\: :ref:`HorizontalAlignment<enum_@GlobalScope_HorizontalAlignment>`\ )
+- :ref:`HorizontalAlignment<enum_@GlobalScope_HorizontalAlignment>` **get_icon_alignment**\ (\ )
 
 Specifies if the icon should be aligned horizontally to the left, right, or center of a button. Uses the same :ref:`HorizontalAlignment<enum_@GlobalScope_HorizontalAlignment>` constants as the text alignment. If centered horizontally and vertically, text will draw on top of the icon.
 
@@ -288,12 +307,12 @@ Specifies if the icon should be aligned horizontally to the left, right, or cent
 
 .. rst-class:: classref-property
 
-:ref:`String<class_String>` **language** = ``""``
+:ref:`String<class_String>` **language** = ``""`` :ref:`🔗<class_Button_property_language>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_language** **(** :ref:`String<class_String>` value **)**
-- :ref:`String<class_String>` **get_language** **(** **)**
+- |void| **set_language**\ (\ value\: :ref:`String<class_String>`\ )
+- :ref:`String<class_String>` **get_language**\ (\ )
 
 Language code used for line-breaking and text shaping algorithms, if left empty current locale is used instead.
 
@@ -305,12 +324,12 @@ Language code used for line-breaking and text shaping algorithms, if left empty 
 
 .. rst-class:: classref-property
 
-:ref:`String<class_String>` **text** = ``""``
+:ref:`String<class_String>` **text** = ``""`` :ref:`🔗<class_Button_property_text>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_text** **(** :ref:`String<class_String>` value **)**
-- :ref:`String<class_String>` **get_text** **(** **)**
+- |void| **set_text**\ (\ value\: :ref:`String<class_String>`\ )
+- :ref:`String<class_String>` **get_text**\ (\ )
 
 The button's text that will be displayed inside the button's area.
 
@@ -322,12 +341,12 @@ The button's text that will be displayed inside the button's area.
 
 .. rst-class:: classref-property
 
-:ref:`TextDirection<enum_Control_TextDirection>` **text_direction** = ``0``
+:ref:`TextDirection<enum_Control_TextDirection>` **text_direction** = ``0`` :ref:`🔗<class_Button_property_text_direction>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_text_direction** **(** :ref:`TextDirection<enum_Control_TextDirection>` value **)**
-- :ref:`TextDirection<enum_Control_TextDirection>` **get_text_direction** **(** **)**
+- |void| **set_text_direction**\ (\ value\: :ref:`TextDirection<enum_Control_TextDirection>`\ )
+- :ref:`TextDirection<enum_Control_TextDirection>` **get_text_direction**\ (\ )
 
 Base text writing direction.
 
@@ -339,12 +358,12 @@ Base text writing direction.
 
 .. rst-class:: classref-property
 
-:ref:`OverrunBehavior<enum_TextServer_OverrunBehavior>` **text_overrun_behavior** = ``0``
+:ref:`OverrunBehavior<enum_TextServer_OverrunBehavior>` **text_overrun_behavior** = ``0`` :ref:`🔗<class_Button_property_text_overrun_behavior>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_text_overrun_behavior** **(** :ref:`OverrunBehavior<enum_TextServer_OverrunBehavior>` value **)**
-- :ref:`OverrunBehavior<enum_TextServer_OverrunBehavior>` **get_text_overrun_behavior** **(** **)**
+- |void| **set_text_overrun_behavior**\ (\ value\: :ref:`OverrunBehavior<enum_TextServer_OverrunBehavior>`\ )
+- :ref:`OverrunBehavior<enum_TextServer_OverrunBehavior>` **get_text_overrun_behavior**\ (\ )
 
 Sets the clipping behavior when the text exceeds the node's bounding rectangle. See :ref:`OverrunBehavior<enum_TextServer_OverrunBehavior>` for a description of all modes.
 
@@ -356,12 +375,12 @@ Sets the clipping behavior when the text exceeds the node's bounding rectangle. 
 
 .. rst-class:: classref-property
 
-:ref:`VerticalAlignment<enum_@GlobalScope_VerticalAlignment>` **vertical_icon_alignment** = ``1``
+:ref:`VerticalAlignment<enum_@GlobalScope_VerticalAlignment>` **vertical_icon_alignment** = ``1`` :ref:`🔗<class_Button_property_vertical_icon_alignment>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_vertical_icon_alignment** **(** :ref:`VerticalAlignment<enum_@GlobalScope_VerticalAlignment>` value **)**
-- :ref:`VerticalAlignment<enum_@GlobalScope_VerticalAlignment>` **get_vertical_icon_alignment** **(** **)**
+- |void| **set_vertical_icon_alignment**\ (\ value\: :ref:`VerticalAlignment<enum_@GlobalScope_VerticalAlignment>`\ )
+- :ref:`VerticalAlignment<enum_@GlobalScope_VerticalAlignment>` **get_vertical_icon_alignment**\ (\ )
 
 Specifies if the icon should be aligned vertically to the top, bottom, or center of a button. Uses the same :ref:`VerticalAlignment<enum_@GlobalScope_VerticalAlignment>` constants as the text alignment. If centered horizontally and vertically, text will draw on top of the icon.
 
@@ -378,7 +397,7 @@ Theme Property Descriptions
 
 .. rst-class:: classref-themeproperty
 
-:ref:`Color<class_Color>` **font_color** = ``Color(0.875, 0.875, 0.875, 1)``
+:ref:`Color<class_Color>` **font_color** = ``Color(0.875, 0.875, 0.875, 1)`` :ref:`🔗<class_Button_theme_color_font_color>`
 
 Default text :ref:`Color<class_Color>` of the **Button**.
 
@@ -390,7 +409,7 @@ Default text :ref:`Color<class_Color>` of the **Button**.
 
 .. rst-class:: classref-themeproperty
 
-:ref:`Color<class_Color>` **font_disabled_color** = ``Color(0.875, 0.875, 0.875, 0.5)``
+:ref:`Color<class_Color>` **font_disabled_color** = ``Color(0.875, 0.875, 0.875, 0.5)`` :ref:`🔗<class_Button_theme_color_font_disabled_color>`
 
 Text :ref:`Color<class_Color>` used when the **Button** is disabled.
 
@@ -402,7 +421,7 @@ Text :ref:`Color<class_Color>` used when the **Button** is disabled.
 
 .. rst-class:: classref-themeproperty
 
-:ref:`Color<class_Color>` **font_focus_color** = ``Color(0.95, 0.95, 0.95, 1)``
+:ref:`Color<class_Color>` **font_focus_color** = ``Color(0.95, 0.95, 0.95, 1)`` :ref:`🔗<class_Button_theme_color_font_focus_color>`
 
 Text :ref:`Color<class_Color>` used when the **Button** is focused. Only replaces the normal text color of the button. Disabled, hovered, and pressed states take precedence over this color.
 
@@ -414,7 +433,7 @@ Text :ref:`Color<class_Color>` used when the **Button** is focused. Only replace
 
 .. rst-class:: classref-themeproperty
 
-:ref:`Color<class_Color>` **font_hover_color** = ``Color(0.95, 0.95, 0.95, 1)``
+:ref:`Color<class_Color>` **font_hover_color** = ``Color(0.95, 0.95, 0.95, 1)`` :ref:`🔗<class_Button_theme_color_font_hover_color>`
 
 Text :ref:`Color<class_Color>` used when the **Button** is being hovered.
 
@@ -426,7 +445,7 @@ Text :ref:`Color<class_Color>` used when the **Button** is being hovered.
 
 .. rst-class:: classref-themeproperty
 
-:ref:`Color<class_Color>` **font_hover_pressed_color** = ``Color(1, 1, 1, 1)``
+:ref:`Color<class_Color>` **font_hover_pressed_color** = ``Color(1, 1, 1, 1)`` :ref:`🔗<class_Button_theme_color_font_hover_pressed_color>`
 
 Text :ref:`Color<class_Color>` used when the **Button** is being hovered and pressed.
 
@@ -438,7 +457,7 @@ Text :ref:`Color<class_Color>` used when the **Button** is being hovered and pre
 
 .. rst-class:: classref-themeproperty
 
-:ref:`Color<class_Color>` **font_outline_color** = ``Color(1, 1, 1, 1)``
+:ref:`Color<class_Color>` **font_outline_color** = ``Color(0, 0, 0, 1)`` :ref:`🔗<class_Button_theme_color_font_outline_color>`
 
 The tint of text outline of the **Button**.
 
@@ -450,7 +469,7 @@ The tint of text outline of the **Button**.
 
 .. rst-class:: classref-themeproperty
 
-:ref:`Color<class_Color>` **font_pressed_color** = ``Color(1, 1, 1, 1)``
+:ref:`Color<class_Color>` **font_pressed_color** = ``Color(1, 1, 1, 1)`` :ref:`🔗<class_Button_theme_color_font_pressed_color>`
 
 Text :ref:`Color<class_Color>` used when the **Button** is being pressed.
 
@@ -462,7 +481,7 @@ Text :ref:`Color<class_Color>` used when the **Button** is being pressed.
 
 .. rst-class:: classref-themeproperty
 
-:ref:`Color<class_Color>` **icon_disabled_color** = ``Color(1, 1, 1, 0.4)``
+:ref:`Color<class_Color>` **icon_disabled_color** = ``Color(1, 1, 1, 0.4)`` :ref:`🔗<class_Button_theme_color_icon_disabled_color>`
 
 Icon modulate :ref:`Color<class_Color>` used when the **Button** is disabled.
 
@@ -474,7 +493,7 @@ Icon modulate :ref:`Color<class_Color>` used when the **Button** is disabled.
 
 .. rst-class:: classref-themeproperty
 
-:ref:`Color<class_Color>` **icon_focus_color** = ``Color(1, 1, 1, 1)``
+:ref:`Color<class_Color>` **icon_focus_color** = ``Color(1, 1, 1, 1)`` :ref:`🔗<class_Button_theme_color_icon_focus_color>`
 
 Icon modulate :ref:`Color<class_Color>` used when the **Button** is focused. Only replaces the normal modulate color of the button. Disabled, hovered, and pressed states take precedence over this color.
 
@@ -486,7 +505,7 @@ Icon modulate :ref:`Color<class_Color>` used when the **Button** is focused. Onl
 
 .. rst-class:: classref-themeproperty
 
-:ref:`Color<class_Color>` **icon_hover_color** = ``Color(1, 1, 1, 1)``
+:ref:`Color<class_Color>` **icon_hover_color** = ``Color(1, 1, 1, 1)`` :ref:`🔗<class_Button_theme_color_icon_hover_color>`
 
 Icon modulate :ref:`Color<class_Color>` used when the **Button** is being hovered.
 
@@ -498,7 +517,7 @@ Icon modulate :ref:`Color<class_Color>` used when the **Button** is being hovere
 
 .. rst-class:: classref-themeproperty
 
-:ref:`Color<class_Color>` **icon_hover_pressed_color** = ``Color(1, 1, 1, 1)``
+:ref:`Color<class_Color>` **icon_hover_pressed_color** = ``Color(1, 1, 1, 1)`` :ref:`🔗<class_Button_theme_color_icon_hover_pressed_color>`
 
 Icon modulate :ref:`Color<class_Color>` used when the **Button** is being hovered and pressed.
 
@@ -510,7 +529,7 @@ Icon modulate :ref:`Color<class_Color>` used when the **Button** is being hovere
 
 .. rst-class:: classref-themeproperty
 
-:ref:`Color<class_Color>` **icon_normal_color** = ``Color(1, 1, 1, 1)``
+:ref:`Color<class_Color>` **icon_normal_color** = ``Color(1, 1, 1, 1)`` :ref:`🔗<class_Button_theme_color_icon_normal_color>`
 
 Default icon modulate :ref:`Color<class_Color>` of the **Button**.
 
@@ -522,7 +541,7 @@ Default icon modulate :ref:`Color<class_Color>` of the **Button**.
 
 .. rst-class:: classref-themeproperty
 
-:ref:`Color<class_Color>` **icon_pressed_color** = ``Color(1, 1, 1, 1)``
+:ref:`Color<class_Color>` **icon_pressed_color** = ``Color(1, 1, 1, 1)`` :ref:`🔗<class_Button_theme_color_icon_pressed_color>`
 
 Icon modulate :ref:`Color<class_Color>` used when the **Button** is being pressed.
 
@@ -534,7 +553,7 @@ Icon modulate :ref:`Color<class_Color>` used when the **Button** is being presse
 
 .. rst-class:: classref-themeproperty
 
-:ref:`int<class_int>` **h_separation** = ``4``
+:ref:`int<class_int>` **h_separation** = ``4`` :ref:`🔗<class_Button_theme_constant_h_separation>`
 
 The horizontal space between **Button**'s icon and text. Negative values will be treated as ``0`` when used.
 
@@ -546,9 +565,9 @@ The horizontal space between **Button**'s icon and text. Negative values will be
 
 .. rst-class:: classref-themeproperty
 
-:ref:`int<class_int>` **icon_max_width** = ``0``
+:ref:`int<class_int>` **icon_max_width** = ``0`` :ref:`🔗<class_Button_theme_constant_icon_max_width>`
 
-The maximum allowed width of the **Button**'s icon. This limit is applied on top of the default size of the icon, or its expanded size if :ref:`expand_icon<class_Button_property_expand_icon>` is ``true``. The height is adjusted according to the icon's ratio.
+The maximum allowed width of the **Button**'s icon. This limit is applied on top of the default size of the icon, or its expanded size if :ref:`expand_icon<class_Button_property_expand_icon>` is ``true``. The height is adjusted according to the icon's ratio. If the button has additional icons (e.g. :ref:`CheckBox<class_CheckBox>`), they will also be limited.
 
 .. rst-class:: classref-item-separator
 
@@ -558,7 +577,7 @@ The maximum allowed width of the **Button**'s icon. This limit is applied on top
 
 .. rst-class:: classref-themeproperty
 
-:ref:`int<class_int>` **outline_size** = ``0``
+:ref:`int<class_int>` **outline_size** = ``0`` :ref:`🔗<class_Button_theme_constant_outline_size>`
 
 The size of the text outline.
 
@@ -572,7 +591,7 @@ The size of the text outline.
 
 .. rst-class:: classref-themeproperty
 
-:ref:`Font<class_Font>` **font**
+:ref:`Font<class_Font>` **font** :ref:`🔗<class_Button_theme_font_font>`
 
 :ref:`Font<class_Font>` of the **Button**'s text.
 
@@ -584,7 +603,7 @@ The size of the text outline.
 
 .. rst-class:: classref-themeproperty
 
-:ref:`int<class_int>` **font_size**
+:ref:`int<class_int>` **font_size** :ref:`🔗<class_Button_theme_font_size_font_size>`
 
 Font size of the **Button**'s text.
 
@@ -596,7 +615,7 @@ Font size of the **Button**'s text.
 
 .. rst-class:: classref-themeproperty
 
-:ref:`Texture2D<class_Texture2D>` **icon**
+:ref:`Texture2D<class_Texture2D>` **icon** :ref:`🔗<class_Button_theme_icon_icon>`
 
 Default icon for the **Button**. Appears only if :ref:`icon<class_Button_property_icon>` is not assigned.
 
@@ -608,7 +627,7 @@ Default icon for the **Button**. Appears only if :ref:`icon<class_Button_propert
 
 .. rst-class:: classref-themeproperty
 
-:ref:`StyleBox<class_StyleBox>` **disabled**
+:ref:`StyleBox<class_StyleBox>` **disabled** :ref:`🔗<class_Button_theme_style_disabled>`
 
 :ref:`StyleBox<class_StyleBox>` used when the **Button** is disabled.
 
@@ -620,7 +639,7 @@ Default icon for the **Button**. Appears only if :ref:`icon<class_Button_propert
 
 .. rst-class:: classref-themeproperty
 
-:ref:`StyleBox<class_StyleBox>` **disabled_mirrored**
+:ref:`StyleBox<class_StyleBox>` **disabled_mirrored** :ref:`🔗<class_Button_theme_style_disabled_mirrored>`
 
 :ref:`StyleBox<class_StyleBox>` used when the **Button** is disabled (for right-to-left layouts).
 
@@ -632,7 +651,7 @@ Default icon for the **Button**. Appears only if :ref:`icon<class_Button_propert
 
 .. rst-class:: classref-themeproperty
 
-:ref:`StyleBox<class_StyleBox>` **focus**
+:ref:`StyleBox<class_StyleBox>` **focus** :ref:`🔗<class_Button_theme_style_focus>`
 
 :ref:`StyleBox<class_StyleBox>` used when the **Button** is focused. The :ref:`focus<class_Button_theme_style_focus>` :ref:`StyleBox<class_StyleBox>` is displayed *over* the base :ref:`StyleBox<class_StyleBox>`, so a partially transparent :ref:`StyleBox<class_StyleBox>` should be used to ensure the base :ref:`StyleBox<class_StyleBox>` remains visible. A :ref:`StyleBox<class_StyleBox>` that represents an outline or an underline works well for this purpose. To disable the focus visual effect, assign a :ref:`StyleBoxEmpty<class_StyleBoxEmpty>` resource. Note that disabling the focus visual effect will harm keyboard/controller navigation usability, so this is not recommended for accessibility reasons.
 
@@ -644,7 +663,7 @@ Default icon for the **Button**. Appears only if :ref:`icon<class_Button_propert
 
 .. rst-class:: classref-themeproperty
 
-:ref:`StyleBox<class_StyleBox>` **hover**
+:ref:`StyleBox<class_StyleBox>` **hover** :ref:`🔗<class_Button_theme_style_hover>`
 
 :ref:`StyleBox<class_StyleBox>` used when the **Button** is being hovered.
 
@@ -656,7 +675,7 @@ Default icon for the **Button**. Appears only if :ref:`icon<class_Button_propert
 
 .. rst-class:: classref-themeproperty
 
-:ref:`StyleBox<class_StyleBox>` **hover_mirrored**
+:ref:`StyleBox<class_StyleBox>` **hover_mirrored** :ref:`🔗<class_Button_theme_style_hover_mirrored>`
 
 :ref:`StyleBox<class_StyleBox>` used when the **Button** is being hovered (for right-to-left layouts).
 
@@ -668,7 +687,7 @@ Default icon for the **Button**. Appears only if :ref:`icon<class_Button_propert
 
 .. rst-class:: classref-themeproperty
 
-:ref:`StyleBox<class_StyleBox>` **hover_pressed**
+:ref:`StyleBox<class_StyleBox>` **hover_pressed** :ref:`🔗<class_Button_theme_style_hover_pressed>`
 
 :ref:`StyleBox<class_StyleBox>` used when the **Button** is being pressed and hovered at the same time.
 
@@ -680,7 +699,7 @@ Default icon for the **Button**. Appears only if :ref:`icon<class_Button_propert
 
 .. rst-class:: classref-themeproperty
 
-:ref:`StyleBox<class_StyleBox>` **hover_pressed_mirrored**
+:ref:`StyleBox<class_StyleBox>` **hover_pressed_mirrored** :ref:`🔗<class_Button_theme_style_hover_pressed_mirrored>`
 
 :ref:`StyleBox<class_StyleBox>` used when the **Button** is being pressed and hovered at the same time (for right-to-left layouts).
 
@@ -692,7 +711,7 @@ Default icon for the **Button**. Appears only if :ref:`icon<class_Button_propert
 
 .. rst-class:: classref-themeproperty
 
-:ref:`StyleBox<class_StyleBox>` **normal**
+:ref:`StyleBox<class_StyleBox>` **normal** :ref:`🔗<class_Button_theme_style_normal>`
 
 Default :ref:`StyleBox<class_StyleBox>` for the **Button**.
 
@@ -704,7 +723,7 @@ Default :ref:`StyleBox<class_StyleBox>` for the **Button**.
 
 .. rst-class:: classref-themeproperty
 
-:ref:`StyleBox<class_StyleBox>` **normal_mirrored**
+:ref:`StyleBox<class_StyleBox>` **normal_mirrored** :ref:`🔗<class_Button_theme_style_normal_mirrored>`
 
 Default :ref:`StyleBox<class_StyleBox>` for the **Button** (for right-to-left layouts).
 
@@ -716,7 +735,7 @@ Default :ref:`StyleBox<class_StyleBox>` for the **Button** (for right-to-left la
 
 .. rst-class:: classref-themeproperty
 
-:ref:`StyleBox<class_StyleBox>` **pressed**
+:ref:`StyleBox<class_StyleBox>` **pressed** :ref:`🔗<class_Button_theme_style_pressed>`
 
 :ref:`StyleBox<class_StyleBox>` used when the **Button** is being pressed.
 
@@ -728,7 +747,7 @@ Default :ref:`StyleBox<class_StyleBox>` for the **Button** (for right-to-left la
 
 .. rst-class:: classref-themeproperty
 
-:ref:`StyleBox<class_StyleBox>` **pressed_mirrored**
+:ref:`StyleBox<class_StyleBox>` **pressed_mirrored** :ref:`🔗<class_Button_theme_style_pressed_mirrored>`
 
 :ref:`StyleBox<class_StyleBox>` used when the **Button** is being pressed (for right-to-left layouts).
 
@@ -739,3 +758,4 @@ Default :ref:`StyleBox<class_StyleBox>` for the **Button** (for right-to-left la
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
 .. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
